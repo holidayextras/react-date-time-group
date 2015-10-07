@@ -1,0 +1,34 @@
+{
+  "name": "react-date-time-group",
+  "version": "1.0.0",
+  "description": "Datepicker with optional time",
+  "main": "src/DateTimeGroup.jsx",
+  "scripts": {
+    "prestart": "ulimit -n 9999",
+    "start": "watchify -t babelify -t brfs doc/example.js -o doc/example-built -v",
+    "test": "mocha --require react-tests-globals-setup --compilers js:babel/register test/test*",
+    "lint": "make-up src test doc"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "moment": "^2.10.6",
+    "react": "^0.13.3",
+    "react-bootstrap": "^0.26.1",
+    "react-datepicker": "^0.13.0",
+    "react-time-picker": "^1.1.0"
+  },
+  "devDependencies": {
+    "babel": "^5.8.23",
+    "babelify": "^6.3.0",
+    "brfs": "^1.4.1",
+    "browserify": "^11.2.0",
+    "browserify-css": "^0.7.1",
+    "insert-css": "^0.2.0",
+    "jsdom": "^3.1.2",
+    "make-up": "^5.3.1",
+    "mocha": "^2.3.3",
+    "react-tests-globals-setup": "^1.0.0",
+    "watchify": "^3.4.0"
+  }
+}
