@@ -4,6 +4,7 @@
   "description": "Datepicker with optional time",
   "main": "src/DateTimeGroup.jsx",
   "scripts": {
+    "coverage": "istanbul cover _mocha -- --compilers js:babel/register --require react-tests-globals-setup test/test* && istanbul check-coverage --statements 95 --branches 95 --functions 95 --lines 95",
     "prestart": "ulimit -n 9999",
     "start": "watchify -t babelify -t brfs doc/example.js -o doc/example-built -v",
     "test": "mocha --require react-tests-globals-setup --compilers js:babel/register test/test*",
@@ -24,11 +25,15 @@
     "brfs": "^1.4.1",
     "browserify": "^11.2.0",
     "browserify-css": "^0.7.1",
+    "chai": "^3.3.0",
     "insert-css": "^0.2.0",
+    "istanbul": "^0.3.22",
     "jsdom": "^3.1.2",
     "make-up": "^5.3.1",
     "mocha": "^2.3.3",
+    "react-shallow-render": "^1.0.1",
     "react-tests-globals-setup": "^1.0.0",
+    "sinon": "^1.17.1",
     "watchify": "^3.4.0"
   }
 }

@@ -15,12 +15,14 @@ var excludedDates = [
   new Date('2015-05-15T00:00')
 ];
 
-var changeDate = function(newDate) {
+var fns = {};
+
+fns.changeDate = function(newDate) {
   myDate = newDate;
-  render();
+  fns.render();
 };
 
-var render = function() {
+fns.render = function() {
   React.render(
     <div>
       <h1>Defaults</h1>
@@ -30,9 +32,9 @@ var render = function() {
       <DateTimeGroup includeTime={false} />
 
       <h1>Options for time (value shared with "Events")</h1>
-      <DateTimeGroup 
+      <DateTimeGroup
         value={myDate}
-        onChange={changeDate}
+        onChange={fns.changeDate}
         timeClassName="myClass"
         timeLabel="Choose a time"
         timeName="TheTime"
@@ -52,14 +54,14 @@ var render = function() {
         dateFormat="MMMM Do YYYY" />
 
       <h1>Events (value shared with "Options for time")</h1>
-      <DateTimeGroup value={myDate} onChange={changeDate} />
+      <DateTimeGroup value={myDate} onChange={fns.changeDate} />
 
-      <h1>Localization</h1>
-      <DateTimeGroup value={myDate} onChange={changeDate} locales={['en-US']} />
+      <h1>Localization (Incomplete)</h1>
+      <DateTimeGroup onChange={fns.changeDate} locales={['en-US']} />
     </div>
     ,
     document.getElementById('container')
   );
 };
 
-render();
+fns.render();

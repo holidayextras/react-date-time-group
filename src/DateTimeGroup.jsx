@@ -43,12 +43,6 @@ var DateTimeGroup = React.createClass({
     };
   },
 
-  defaultDate: function() {
-    var date = new Date();
-    date.setHours(12, 0, 0, 0);
-    return date;
-  },
-
   timeChanged: function(newDateTime) {
     if (this.props.onChange) {
       this.props.onChange(newDateTime);
@@ -65,7 +59,7 @@ var DateTimeGroup = React.createClass({
   },
 
   dateExclusions: function() {
-    if(!this.props.dateExclusions) {
+    if (!this.props.dateExclusions) {
       return null;
     }
 
