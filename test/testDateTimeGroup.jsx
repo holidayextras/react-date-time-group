@@ -48,6 +48,16 @@ describe('DateTimeGroup', function() {
   describe('render', function() {
     it('renders a row and some columns', function() {
       var renderOutput = shallowRender(<DateTimeGroup />);
+
+      expect(renderOutput.type).to.equal(ReactBootstrap.Grid);
+
+      var row = renderOutput.props.children;
+      expect(row.type).to.equal(ReactBootstrap.Row);
+
+      var cols = row.props.children;
+      expect(cols.length).to.equal(2);
+      expect(cols[0].type).to.equal(ReactBootstrap.Col);
+      expect(cols[1].type).to.equal(ReactBootstrap.Col);
     });
 
     describe('time-select child component', function() {
@@ -145,18 +155,24 @@ describe('DateTimeGroup', function() {
       });
 
       context('with properties', function() {
-        var date, datePicker, startDate, endDate, dateLabel;
+        var date, datePicker, startDate, endDate, dateLabel, excludedDates;
 
         before(function() {
           date = new Date(2015, 8, 13, 10, 0, 0);
           startDate = new Date(2015, 8, 9);
           endDate = new Date(2015, 8, 20);
+          excludedDates = [
+            new Date(2015, 8, 10),
+            new Date(2015, 8, 17),
+            new Date(2015, 8, 18)
+          ];
 
           var renderOutput = shallowRender(<DateTimeGroup
             dateStart={startDate}
             dateEnd={endDate}
             dateLabel="the-date-label"
             dateFormat="dd/mm/YYYY"
+            dateExclusions={excludedDates}
             locales={['en-US']}
             value={date} />);
 
@@ -206,6 +222,18 @@ describe('DateTimeGroup', function() {
           expect(datePicker.props.selected.toDate()).to.deep.equal(date);
         });
 
+        it('wraps all the excluded dates in moments', function() {
+          expect(moment.isMoment(datePicker.props.excludeDates[0])).to.equal(true);
+          expect(moment.isMoment(datePicker.props.excludeDates[1])).to.equal(true);
+          expect(moment.isMoment(datePicker.props.excludeDates[2])).to.equal(true);
+        });
+
+        it('passes all the excluded dates through', function() {
+          expect(datePicker.props.excludeDates[0].toDate()).to.deep.equal(excludedDates[0]);
+          expect(datePicker.props.excludeDates[1].toDate()).to.deep.equal(excludedDates[1]);
+          expect(datePicker.props.excludeDates[2].toDate()).to.deep.equal(excludedDates[2]);
+        });
+
         it('renders the date label into a span', function() {
           expect(dateLabel).to.equal('the-date-label');
         });
@@ -215,11 +243,59 @@ describe('DateTimeGroup', function() {
 
   describe('events', function() {
     it('will emit a date up if the time is changed', function() {
+      var handler = sinon.stub();
+      var doc = TestUtils.renderIntoDocument(<DateTimeGroup onChange={handler} />);
+      var node = TestUtils.findRenderedDOMComponentWithTag(doc, 'select').getDOMNode();
 
+      React.addons.TestUtils.Simulate.change(node, {
+        target: {
+          value: '16:30'
+        }
+      });
+
+      sinon.assert.calledWith(handler, new Date(2015, 5, 6, 16, 30, 0, 0));
     });
 
     it('will emit a date up if the date is changed', function() {
+      var date = new Date(2015, 5, 5, 11, 30, 0, 0);
+      var handler = sinon.stub();
+      var group = <DateTimeGroup onChange={handler} value={date} />;
 
+      var doc = TestUtils.renderIntoDocument(group);
+      var node = TestUtils.findRenderedDOMComponentWithClass(doc, 'datepicker__input').getDOMNode();
+
+      React.addons.TestUtils.Simulate.change(node, {
+        target: {
+          value: '2015-06-12'
+        }
+      });
+
+      sinon.assert.called(handler);
+      sinon.assert.calledWith(handler, new Date(2015, 5, 12, 11, 30, 0, 0));
+    });
+
+    it('will not throw errors if no handler is provided', function() {
+      var group = <DateTimeGroup />;
+
+      var doc = TestUtils.renderIntoDocument(group);
+      var dateNode = TestUtils.findRenderedDOMComponentWithClass(doc, 'datepicker__input').getDOMNode();
+      var timeNode = TestUtils.findRenderedDOMComponentWithTag(doc, 'select').getDOMNode();
+
+      expect(function() {
+        React.addons.TestUtils.Simulate.change(dateNode, {
+          target: {
+            value: '2015-06-12'
+          }
+        });
+      }).to.not.throw(Error);
+
+      expect(function() {
+        React.addons.TestUtils.Simulate.change(timeNode, {
+          target: {
+            value: '12:30'
+          }
+        });
+      }).to.not.throw(Error);
     });
   });
 });
