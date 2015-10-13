@@ -1,5 +1,4 @@
 'use strict';
-/* eslint-disable no-alert */
 
 var React = require('react');
 var DateTimeGroup = require('../src/DateTimeGroup.jsx');
