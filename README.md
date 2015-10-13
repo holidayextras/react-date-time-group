@@ -26,7 +26,7 @@ React.render(<DateTimeGroup />, document.getElementById('container'));
 - __timeClassName__ - `class` attribute to be applied to time picker element. Default "input-sm".
 - __timeLabel__ - Label for time field. Default "Time".
 - __timeName__ - Name for time field. Default "Time".
-- __timeSstart__ - Time to start from when generating range, for example `start={1230}`. Default is {30} (00:30).
+- __timeStart__ - Time to start from when generating range, for example `start={1230}`. Default is {30} (00:30).
 - __timeEnd__ - Time to stop generating range. Default is {2359}. Will not be listed as an option if your "step" value overruns it.
 - __timeStep__ - Number of minutes between each option. Default is {30}.
 
