@@ -21,7 +21,7 @@ describe('DateTimeGroup', function() {
 
     // getDefaultProps contains a date and is called when the component
     // is defined - we need to ensure the current date is faked by then.
-    DateTimeGroup = require('../');
+    DateTimeGroup = require('../src/DateTimeGroup');
   });
 
   after(function() {

@@ -2,22 +2,28 @@
   "name": "react-date-time-group",
   "version": "1.0.0",
   "description": "Datepicker with optional time",
-  "main": "src/DateTimeGroup.jsx",
+  "main": "dist/DateTimeGroup.js",
   "scripts": {
+    "ci": "npm run lint && npm run coverage",
     "coverage": "istanbul cover _mocha -- --compilers js:babel/register --require react-tests-globals-setup test/test* && istanbul check-coverage --statements 95 --branches 95 --functions 95 --lines 95",
+    "prepublish": "mkdir -p dist && babel src/DateTimeGroup.jsx > dist/DateTimeGroup.js",
     "prestart": "ulimit -n 9999",
     "start": "watchify -t babelify -t brfs doc/example.js -o doc/example-built -v",
     "test": "mocha --require react-tests-globals-setup --compilers js:babel/register test/test*",
     "lint": "make-up src test doc"
   },
-  "author": "",
+  "author": "Ollie Buck <ollie.buck@holidayextras.com>",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/holidayextras/react-date-time-group.git"
+  },
   "dependencies": {
     "moment": "^2.10.6",
     "react": "^0.13.3",
     "react-bootstrap": "^0.26.1",
     "react-datepicker": "^0.13.0",
-    "react-time-picker": "^1.1.0"
+    "react-time-select": "^1.0.2"
   },
   "devDependencies": {
     "babel": "^5.8.23",
