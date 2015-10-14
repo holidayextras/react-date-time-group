@@ -6,7 +6,7 @@
   "scripts": {
     "ci": "npm run lint && npm run coverage",
     "coverage": "istanbul cover _mocha -- --compilers js:babel/register --require react-tests-globals-setup test/test* && istanbul check-coverage --statements 95 --branches 95 --functions 95 --lines 95",
-    "prepublish": "mkdir -p dist && babel src/DateTimeGroup.jsx > dist/DateTimeGroup.js",
+    "prepublish": "mkdir -p ./dist && babel ./src/DateTimeGroup.jsx > ./dist/DateTimeGroup.js",
     "prestart": "ulimit -n 9999",
     "start": "watchify -t babelify -t brfs doc/example.js -o doc/example-built -v",
     "test": "mocha --require react-tests-globals-setup --compilers js:babel/register test/test*",
