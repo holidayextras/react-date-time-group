@@ -38,6 +38,7 @@ var DateTimeGroup = React.createClass({
     return {
       includeTime: true,
       dateLabel: 'Date',
+      dateName: 'Date',
       value: defaultDate,
       locales: [ 'en-GB' ]
     };
@@ -99,6 +100,7 @@ var DateTimeGroup = React.createClass({
               <span>{this.props.dateLabel}</span>
             </label>
             <DatePicker
+              name={this.props.dateName}
               selected={moment(this.props.value)}
               onChange={this.dateChanged}
               minDate={this.props.dateStart ? moment(this.props.dateStart) : null}

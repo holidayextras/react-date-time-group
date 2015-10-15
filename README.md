@@ -17,6 +17,7 @@ React.render(<DateTimeGroup />, document.getElementById('container'));
 
 - __dateLabel__ - Label for date field. Default "Date".
 - __dateStart__ - Date instance representing the earliest day selectable
+- __dateName__ - Name for date field. Default "Date"
 - __dateEnd__ - Date instance representing the latest day selectable
 - __dateExclusions__ - Array of date instances to be "greyed out"
 - __dateFormat__ - Format string used in the calendar header and as the value of the input element
