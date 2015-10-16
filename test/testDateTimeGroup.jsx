@@ -38,6 +38,7 @@ describe('DateTimeGroup', function() {
 
       expect(element.props).to.deep.equal({
         dateLabel: 'Date',
+        dateName: 'Date',
         includeTime: true,
         value: new Date(2015, 5, 6, 12, 0, 0),
         locales: [ 'en-GB' ]
