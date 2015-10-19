@@ -52,6 +52,19 @@ fns.render = function() {
         dateExclusions={excludedDates}
         dateFormat="MMMM Do YYYY" />
 
+
+      <h1>CAMERON TEST</h1>
+      <DateTimeGroup
+        value={myRestrictedDate}
+        dateClassName="myClass"
+        dateLabel="Choose a date"
+        dateName="TheDate"
+        dateStart={minDate}
+        dateEnd={maxDate}
+        dateExclusions={excludedDates}
+        dateFormat="DD/MM/YY" />
+
+
       <h1>Events (value shared with "Options for time")</h1>
       <DateTimeGroup value={myDate} onChange={fns.changeDate} />
 

@@ -93,26 +93,24 @@ var DateTimeGroup = React.createClass({
     }
 
     return (
-      <ReactBootstrap.Grid>
-        <ReactBootstrap.Row>
-          <ReactBootstrap.Col xs={12} md={8}>
-            <label className="control-label">
-              <span>{this.props.dateLabel}</span>
-            </label>
-            <DatePicker
-              name={this.props.dateName}
-              selected={moment(this.props.value)}
-              onChange={this.dateChanged}
-              minDate={this.props.dateStart ? moment(this.props.dateStart) : null}
-              maxDate={this.props.dateEnd ? moment(this.props.dateEnd) : null}
-              excludeDates={this.dateExclusions()}
-              dateFormat={this.props.dateFormat}
-              dateFormatCalendar={this.props.dateFormat}
-              locale={this.props.locales[0]} />
-          </ReactBootstrap.Col>
-          {timePickerColumn}
-        </ReactBootstrap.Row>
-      </ReactBootstrap.Grid>
+      <ReactBootstrap.Row>
+        <ReactBootstrap.Col xs={12} md={8}>
+          <label className="control-label">
+            <span>{this.props.dateLabel}</span>
+          </label>
+          <DatePicker
+            name={this.props.dateName}
+            selected={moment(this.props.value)}
+            onChange={this.dateChanged}
+            minDate={this.props.dateStart ? moment(this.props.dateStart) : null}
+            maxDate={this.props.dateEnd ? moment(this.props.dateEnd) : null}
+            excludeDates={this.dateExclusions()}
+            dateFormat={this.props.dateFormat}
+            locale={this.props.locales[0]} 
+            className='form-control' />
+        </ReactBootstrap.Col>
+        {timePickerColumn}
+      </ReactBootstrap.Row>
     );
   }
 });
