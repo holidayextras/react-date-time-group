@@ -93,7 +93,7 @@ var DateTimeGroup = React.createClass({
     }
 
     return (
-      <ReactBootstrap.Row>
+      <div>
         <div className={this.props.dateContainerClass}>
           <label className="control-label">
             <span>{this.props.dateLabel}</span>
@@ -110,7 +110,7 @@ var DateTimeGroup = React.createClass({
             className='form-control' />
         </div>
         {timePickerColumn}
-      </ReactBootstrap.Row>
+      </div>
     );
   }
 });
