@@ -77,7 +77,7 @@ var DateTimeGroup = React.createClass({
     // intercept it here to pass in their own (maybe Moment's) intl data?
     if (this.props.includeTime) {
       timePickerColumn = (
-        <ReactBootstrap.Col xs={12} md={4}>
+        <div className={this.props.timeContainerClass}>
           <TimePicker
             className={this.props.timeClassName}
             label={this.props.timeLabel}
@@ -88,13 +88,13 @@ var DateTimeGroup = React.createClass({
             end={this.props.timeEnd}
             step={this.props.timeStep}
             locales={this.props.locales} />
-        </ReactBootstrap.Col>
+        </div>
       );
     }
 
     return (
       <ReactBootstrap.Row>
-        <ReactBootstrap.Col xs={12} md={8}>
+        <div className={this.props.dateContainerClass}>
           <label className="control-label">
             <span>{this.props.dateLabel}</span>
           </label>
@@ -108,7 +108,7 @@ var DateTimeGroup = React.createClass({
             dateFormat={this.props.dateFormat}
             locale={this.props.locales[0]} 
             className='form-control' />
-        </ReactBootstrap.Col>
+        </div>
         {timePickerColumn}
       </ReactBootstrap.Row>
     );

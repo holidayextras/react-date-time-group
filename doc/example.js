@@ -39,7 +39,9 @@ fns.render = function() {
         timeName="TheTime"
         timeStart={330}
         timeEnd={2130}
-        timeStep={15} />
+        timeStep={15} 
+        dateContainerClass="col-xs-12 col-md-8"
+        timeContainerClass="col-xs-12 col-md-4" />
 
       <h1>Options for date</h1>
       <DateTimeGroup
@@ -50,7 +52,9 @@ fns.render = function() {
         dateStart={minDate}
         dateEnd={maxDate}
         dateExclusions={excludedDates}
-        dateFormat="MMMM Do YYYY" />
+        dateFormat="MMMM Do YYYY"         
+        dateContainerClass="col-xs-12 col-md-8"
+        timeContainerClass="col-xs-12 col-md-4" />
 
 
       <h1>CAMERON TEST</h1>
@@ -62,7 +66,9 @@ fns.render = function() {
         dateStart={minDate}
         dateEnd={maxDate}
         dateExclusions={excludedDates}
-        dateFormat="DD/MM/YY" />
+        dateFormat="DD/MM/YY"         
+        dateContainerClass="col-xs-6"
+        timeContainerClass="col-xs-6" />
 
 
       <h1>Events (value shared with "Options for time")</h1>
