@@ -107,7 +107,7 @@ var DateTimeGroup = React.createClass({
             excludeDates={this.dateExclusions()}
             dateFormat={this.props.dateFormat}
             locale={this.props.locales[0]} 
-            className='form-control' />
+            className='form-control datepicker__input' />
         </div>
         {timePickerColumn}
       </div>
