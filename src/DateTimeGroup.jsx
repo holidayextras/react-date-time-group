@@ -95,9 +95,11 @@ var DateTimeGroup = React.createClass({
     return (
       <div>
         <div className={this.props.dateContainerClass}>
-          <label className="control-label">
-            <span>{this.props.dateLabel}</span>
-          </label>
+          {this.props.dateLabel ? 
+            <label className="control-label">
+              <span>{this.props.dateLabel}</span>
+            </label>
+          : ''  }
           <DatePicker
             name={this.props.dateName}
             selected={moment(this.props.value)}
