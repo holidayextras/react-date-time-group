@@ -108,7 +108,7 @@ var DateTimeGroup = React.createClass({
             dateFormat={this.props.dateFormat}
             locale={this.props.locales[0]} 
             className='form-control datepicker__input'
-            readOnly={true} />
+            readOnly={this.props.readOnly} />
         </div>
         {timePickerColumn}
       </div>
