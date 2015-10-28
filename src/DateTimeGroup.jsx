@@ -8,7 +8,6 @@ insertcss(fs.readFileSync(path.join(__dirname, '/../node_modules/react-datepicke
 var React = require('react');
 var TimePicker = require('react-time-select');
 var DatePicker = require('react-datepicker');
-var ReactBootstrap = require('react-bootstrap');
 var moment = require('moment');
 
 var DateTimeGroup = React.createClass({
@@ -28,7 +27,10 @@ var DateTimeGroup = React.createClass({
     dateEnd: React.PropTypes.instanceOf(Date),
     dateFormat: React.PropTypes.string,
     dateExclusions: React.PropTypes.array,
-    locales: React.PropTypes.array
+    locales: React.PropTypes.array,
+    timeContainerClass: React.PropTypes.string,
+    dateContainerClass: React.PropTypes.string,
+    readOnly: React.PropTypes.bool
   },
 
   getDefaultProps: function() {
@@ -95,11 +97,11 @@ var DateTimeGroup = React.createClass({
     return (
       <div>
         <div className={this.props.dateContainerClass}>
-          {this.props.dateLabel ? 
+          {this.props.dateLabel ?
             <label className="control-label">
               <span>{this.props.dateLabel}</span>
             </label>
-          : ''  }
+          : ''}
           <DatePicker
             name={this.props.dateName}
             selected={moment(this.props.value)}
@@ -108,8 +110,8 @@ var DateTimeGroup = React.createClass({
             maxDate={this.props.dateEnd ? moment(this.props.dateEnd) : null}
             excludeDates={this.dateExclusions()}
             dateFormat={this.props.dateFormat}
-            locale={this.props.locales[0]} 
-            className='form-control datepicker__input'
+            locale={this.props.locales[0]}
+            className="form-control datepicker__input"
             readOnly={this.props.readOnly} />
         </div>
         {timePickerColumn}

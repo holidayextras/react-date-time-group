@@ -1,7 +1,6 @@
 'use strict';
 
 var React = require('react/addons');
-var ReactBootstrap = require('react-bootstrap');
 var TestUtils = React.addons.TestUtils;
 
 var TimePicker = require('react-time-select');
@@ -162,9 +161,9 @@ describe('DateTimeGroup', function() {
             locales={['en-US']}
             value={date} />);
 
-            var div = renderOutput.props.children[0].props.children;
-            dateLabel = div[0].props.children.props.children;
-            datePicker = div[1];
+          var div = renderOutput.props.children[0].props.children;
+          dateLabel = div[0].props.children.props.children;
+          datePicker = div[1];
         });
 
         it('is rendered', function() {
