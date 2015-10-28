@@ -8,7 +8,6 @@ var DatePicker = require('react-datepicker');
 var moment = require('moment');
 
 var expect = require('chai').expect;
-var assert = require('chai').assert;
 var sinon = require('sinon');
 
 var shallowRender = require('react-shallow-render');
