@@ -125,15 +125,6 @@ describe('DateTimeGroup', function() {
           var timePicker = div.props.children;
           expect(timePicker.type).to.equal(TimePicker);
         });
-
-        // it('does not render a label if the prop is not supplied', function() {
-        //   var renderOutput = TestUtils.renderIntoDocument(<DateTimeGroup />);
-        //   // renderOutput = TestUtils.scryRenderedDOMComponentsWithTag(renderOutput, 'div');
-        //   console.log(TestUtils.findRenderedDOMComponentWithTag(renderOutput, 'label'));
-        //   assert(TestUtils.findRenderedDOMComponentWithTag(renderOutput, 'label'));
-
-        // });
-
       });
     });
 
