@@ -39,7 +39,6 @@ var DateTimeGroup = React.createClass({
 
     return {
       includeTime: true,
-      dateLabel: 'Date',
       dateName: 'Date',
       value: defaultDate,
       locales: [ 'en-GB' ]

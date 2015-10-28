@@ -8,6 +8,7 @@ var DatePicker = require('react-datepicker');
 var moment = require('moment');
 
 var expect = require('chai').expect;
+var assert = require('chai').assert;
 var sinon = require('sinon');
 
 var shallowRender = require('react-shallow-render');
@@ -36,7 +37,6 @@ describe('DateTimeGroup', function() {
       var element = <DateTimeGroup />;
 
       expect(element.props).to.deep.equal({
-        dateLabel: 'Date',
         dateName: 'Date',
         includeTime: true,
         value: new Date(2015, 5, 6, 12, 0, 0),
@@ -125,19 +125,19 @@ describe('DateTimeGroup', function() {
           var timePicker = div.props.children;
           expect(timePicker.type).to.equal(TimePicker);
         });
+
+        // it('does not render a label if the prop is not supplied', function() {
+        //   var renderOutput = TestUtils.renderIntoDocument(<DateTimeGroup />);
+        //   // renderOutput = TestUtils.scryRenderedDOMComponentsWithTag(renderOutput, 'div');
+        //   console.log(TestUtils.findRenderedDOMComponentWithTag(renderOutput, 'label'));
+        //   assert(TestUtils.findRenderedDOMComponentWithTag(renderOutput, 'label'));
+
+        // });
+
       });
     });
 
     describe('date-select child component', function() {
-    //   context('with no properties', function() {
-    //     it('is rendered', function() {
-    //       var renderOutput = shallowRender(<DateTimeGroup />);
-    //       var row = renderOutput.props.children;
-    //       var columns = row.props.children;
-
-    //       expect(columns[0].props.children[1].type).to.equal(DatePicker);
-    //     });
-    //   });
 
       context('with properties', function() {
         var date, datePicker, startDate, endDate, dateLabel, excludedDates;
