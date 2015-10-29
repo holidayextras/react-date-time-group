@@ -30,19 +30,6 @@ fns.render = function() {
       <h1>Date Only</h1>
       <DateTimeGroup includeTime={false} />
 
-      <h1>Options for time (value shared with "Events")</h1>
-      <DateTimeGroup
-        value={myDate}
-        onChange={fns.changeDate}
-        timeClassName="myClass"
-        timeLabel="Choose a time"
-        timeName="TheTime"
-        timeStart={330}
-        timeEnd={2130}
-        timeStep={15}
-        dateContainerClass="col-xs-12 col-md-8"
-        timeContainerClass="col-xs-12 col-md-4" />
-
       <h1>Options for date</h1>
       <DateTimeGroup
         value={myRestrictedDate}
@@ -53,6 +40,19 @@ fns.render = function() {
         dateEnd={maxDate}
         dateExclusions={excludedDates}
         dateFormat="MMMM Do YYYY"
+        dateContainerClass="col-xs-12 col-md-8"
+        timeContainerClass="col-xs-12 col-md-4" />
+
+      <h1>Options for time (value shared with "Events")</h1>
+      <DateTimeGroup
+        value={myDate}
+        onChange={fns.changeDate}
+        timeClassName="myClass"
+        timeLabel="Choose a time"
+        timeName="TheTime"
+        timeStart={330}
+        timeEnd={2130}
+        timeStep={15}
         dateContainerClass="col-xs-12 col-md-8"
         timeContainerClass="col-xs-12 col-md-4" />
 
