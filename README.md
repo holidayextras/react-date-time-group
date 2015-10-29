@@ -42,4 +42,4 @@ Clone the repo and `npm install`.
 
 `npm run lint` checks the code against our [guidelines](https://github.com/holidayextras/culture/blob/master/.eslintrc)
 
-`npm run coverage` gets coverage with istanbul, outputing to the `coverage` directory, and exiting nonzero if any metric is below 95%.
+`npm run coverage` gets coverage with istanbul, outputing to the `coverage` directory, and exiting nonzero if any metric is below 100%.

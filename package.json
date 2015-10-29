@@ -5,17 +5,17 @@
   "main": "dist/DateTimeGroup.js",
   "scripts": {
     "ci": "npm run lint && npm run coverage",
-    "coverage": "istanbul cover _mocha -- --compilers js:babel/register --require react-tests-globals-setup test/test* && istanbul check-coverage --statements 95 --branches 95 --functions 95 --lines 95",
+    "coverage": "istanbul cover _mocha -- --compilers js:babel/register --require react-tests-globals-setup test/test* && istanbul check-coverage",
     "prepublish": "mkdir -p ./dist && babel ./src/DateTimeGroup.jsx > ./dist/DateTimeGroup.js",
     "prestart": "ulimit -n 9999",
-    "start": "watchify -t babelify -t brfs doc/example.js -o doc/example-built -v",
+    "start": "watchify -t babelify -t brfs doc/example.js -o doc/example-built.js -v",
     "test": "mocha --require react-tests-globals-setup --compilers js:babel/register test/test*",
     "lint": "make-up src test doc"
   },
   "browserify": {
     "transform": ["brfs"]
   },
-  "author": "Ollie Buck <ollie.buck@holidayextras.com>",
+  "author": "Ollie Buck <ollie.buck@holidayextras.com>", "Cameron Viner <cameron.viner@holidayextras.com>"
   "license": "ISC",
   "repository": {
     "type": "git",
