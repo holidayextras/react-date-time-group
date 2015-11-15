@@ -25,7 +25,7 @@
     "moment": "^2.10.6",
     "react": "^0.13.3",
     "react-bootstrap": "^0.26.1",
-    "react-datepicker": "git+ssh://git@github.com/cameronviner/react-datepicker.git",
+    "react-datepicker": "git+ssh://git@github.com/cameronviner/react-datepicker.git#react013",
     "react-time-select": "^1.0.2"
   },
   "devDependencies": {
