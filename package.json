@@ -29,7 +29,7 @@
     "react-bootstrap": "^0.28.2",
     "react-datepicker": "^0.18.0",
     "react-dom": "^0.14.2",
-    "react-time-select": "^1.0.2"
+    "react-time-select": "holidayextras/react-time-select#PROD-1247"
   },
   "devDependencies": {
     "babel": "^5.8.23",
@@ -41,11 +41,14 @@
     "browserify": "^11.2.0",
     "browserify-css": "^0.7.1",
     "chai": "^3.3.0",
+    "dirty-chai": "^1.2.2",
+    "enzyme": "^1.4.1",
     "insert-css": "^0.2.0",
     "istanbul": "^0.3.22",
     "jsdom": "^3.1.2",
     "make-up": "^5.3.1",
     "mocha": "^2.3.3",
+    "react-addons-test-utils": "^0.14.6",
     "react-shallow-render": "^1.0.1",
     "react-tests-globals-setup": "^1.0.0",
     "sinon": "^1.17.1",
