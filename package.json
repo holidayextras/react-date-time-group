@@ -13,7 +13,9 @@
     "lint": "make-up src test doc"
   },
   "browserify": {
-    "transform": ["brfs"]
+    "transform": [
+      "brfs"
+    ]
   },
   "author": "Ollie Buck <ollie.buck@holidayextras.com>",
   "license": "ISC",
@@ -23,13 +25,17 @@
   },
   "dependencies": {
     "moment": "^2.10.6",
-    "react": "^0.13.3",
-    "react-bootstrap": "^0.26.1",
-    "react-datepicker": "^0.13.0",
+    "react": "^0.14.2",
+    "react-bootstrap": "^0.28.2",
+    "react-datepicker": "^0.18.0",
+    "react-dom": "^0.14.2",
     "react-time-select": "^1.0.2"
   },
   "devDependencies": {
     "babel": "^5.8.23",
+    "babel-loader": "^6.2.1",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-react": "^6.3.13",
     "babelify": "^6.3.0",
     "brfs": "^1.4.1",
     "browserify": "^11.2.0",
