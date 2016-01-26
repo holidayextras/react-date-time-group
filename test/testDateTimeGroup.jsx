@@ -57,9 +57,9 @@ describe('DateTimeGroup', function() {
 
         before(function() {
           props = {
-            timeClassName: "the-time-class",
-            timeLabel: "the-time-label",
-            timeName: "the-time-label",
+            timeClassName: 'the-time-class',
+            timeLabel: 'the-time-label',
+            timeName: 'the-time-label',
             timeStart: 600,
             timeEnd: 1500,
             timeStep: 10,
