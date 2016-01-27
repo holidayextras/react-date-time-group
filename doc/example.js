@@ -61,7 +61,7 @@ fns.render = function() {
       <DateTimeGroup value={myDate} onChange={fns.changeDate} />
 
       <h1>Localization (Incomplete)</h1>
-      <DateTimeGroup onChange={fns.changeDate} locales={['en-US']} />
+      <DateTimeGroup onChange={fns.changeDate} locales='en-US' />
     </div>
     ,
     document.getElementById('container')
