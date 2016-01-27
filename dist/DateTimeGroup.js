@@ -29,7 +29,7 @@ var DateTimeGroup = React.createClass({
     dateEnd: React.PropTypes.instanceOf(Date),
     dateFormat: React.PropTypes.string,
     dateExclusions: React.PropTypes.array,
-    locales: React.PropTypes.array,
+    locales: React.PropTypes.string,
     timeContainerClass: React.PropTypes.string,
     dateContainerClass: React.PropTypes.string,
     readOnly: React.PropTypes.bool
@@ -43,7 +43,7 @@ var DateTimeGroup = React.createClass({
       includeTime: true,
       dateName: 'Date',
       value: defaultDate,
-      locales: ['en-GB']
+      locales: 'en-GB'
     };
   },
 

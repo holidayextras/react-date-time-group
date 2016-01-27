@@ -1,7 +1,7 @@
 'use strict';
 
-var React = require('react/addons');
-var TestUtils = React.addons.TestUtils;
+var React = require('react');
+var TestUtils = require('react-addons-test-utils');
 
 var TimePicker = require('react-time-select');
 var DatePicker = require('react-datepicker');
@@ -39,7 +39,7 @@ describe('DateTimeGroup', function() {
         dateName: 'Date',
         includeTime: true,
         value: new Date(2015, 5, 6, 12, 0, 0),
-        locales: [ 'en-GB' ]
+        locale: 'en-GB'
       });
     });
   });
@@ -63,7 +63,7 @@ describe('DateTimeGroup', function() {
             timeStart: 600,
             timeEnd: 1500,
             timeStep: 10,
-            locales: ['en-US'],
+            locale: 'en-US',
             value: new Date(2015, 8, 9, 15, 30, 0, 0)
           };
 
@@ -100,7 +100,7 @@ describe('DateTimeGroup', function() {
         });
 
         it('passes a locales prop through', function() {
-          expect(dateTimeGroup.find(TimePicker).props().locales).to.deep.equal(props.locales);
+          expect(dateTimeGroup.find(TimePicker).props().locale).to.equal(props.locale);
         });
 
         it('passes a value prop through', function() {
@@ -146,7 +146,7 @@ describe('DateTimeGroup', function() {
             dateLabel="the-date-label"
             dateFormat="dd/mm/YYYY"
             dateExclusions={props.dateExclusions}
-            locales={['en-US']}
+            locale='en-US'
             value={props.date} />);
         });
 
@@ -167,7 +167,7 @@ describe('DateTimeGroup', function() {
         });
 
         it('passes the first locale through (only one is expected)', function() {
-          expect(dateTimeGroup.find(DatePicker).props().locale).to.equal('en-US');
+          expect(dateTimeGroup.find(DatePicker).props().locales).to.equal('en-US');
         });
 
         it('wraps the value in a moment', function() {
@@ -203,7 +203,7 @@ describe('DateTimeGroup', function() {
       var doc = TestUtils.renderIntoDocument(<DateTimeGroup onChange={handler} />);
       var node = TestUtils.findRenderedDOMComponentWithTag(doc, 'select');
 
-      React.addons.TestUtils.Simulate.change(node, {
+      TestUtils.Simulate.change(node, {
         target: {
           value: '16:30'
         }
@@ -220,7 +220,7 @@ describe('DateTimeGroup', function() {
       var doc = TestUtils.renderIntoDocument(group);
       var node = TestUtils.findRenderedDOMComponentWithClass(doc, 'datepicker__input');
 
-      React.addons.TestUtils.Simulate.change(node, {
+      TestUtils.Simulate.change(node, {
         target: {
           value: '2015-06-12'
         }
@@ -238,7 +238,7 @@ describe('DateTimeGroup', function() {
       var timeNode = TestUtils.findRenderedDOMComponentWithTag(doc, 'select');
 
       expect(function() {
-        React.addons.TestUtils.Simulate.change(dateNode, {
+        TestUtils.Simulate.change(dateNode, {
           target: {
             value: '2015-06-12'
           }
@@ -246,7 +246,7 @@ describe('DateTimeGroup', function() {
       }).to.not.throw(Error);
 
       expect(function() {
-        React.addons.TestUtils.Simulate.change(timeNode, {
+        TestUtils.Simulate.change(timeNode, {
           target: {
             value: '12:30'
           }

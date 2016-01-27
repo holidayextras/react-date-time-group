@@ -1,6 +1,6 @@
 # react-date-time-group
 
-[React](https://facebook.github.io/react/) Component for a date picker & time picker, emitting Date instances if either part is changed.
+[React](https://facebook.github.io/react/) Component for a date picker & time picker, emitting Date instances if either part is changed. Requires react v0.14+.
 
 ```
 var DateTimeGroup = require('react-date-time-group');
@@ -12,7 +12,7 @@ React.render(<DateTimeGroup />, document.getElementById('container'));
 - __onChange__ - Event handler for when a time is selected. It will be passed a date instance set to that time, with years/months/days to match the date you provided as __value__, or today's date if it was not present.
 - __value__ - JS Date instance representing the datetime to be displayed.
 - __includeTime__ - Whether to ask for a date and time, or just a date. Defaults to true.
-- __locales__ - Locales ReactIntl should attempt to use for formatting. Default is {['en-GB']}
+- __locale__ - Locale ReactIntl should attempt to use for formatting. Default is 'en-GB'.
 
 ### Date options
 

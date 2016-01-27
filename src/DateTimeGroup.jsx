@@ -27,7 +27,7 @@ var DateTimeGroup = React.createClass({
     dateEnd: React.PropTypes.instanceOf(Date),
     dateFormat: React.PropTypes.string,
     dateExclusions: React.PropTypes.array,
-    locales: React.PropTypes.string,
+    locale: React.PropTypes.string,
     timeContainerClass: React.PropTypes.string,
     dateContainerClass: React.PropTypes.string,
     readOnly: React.PropTypes.bool
@@ -41,7 +41,7 @@ var DateTimeGroup = React.createClass({
       includeTime: true,
       dateName: 'Date',
       value: defaultDate,
-      locales: 'en-GB'
+      locale: 'en-GB'
     };
   },
 
@@ -88,7 +88,7 @@ var DateTimeGroup = React.createClass({
             start={this.props.timeStart}
             end={this.props.timeEnd}
             step={this.props.timeStep}
-            locales={this.props.locales} />
+            locale={this.props.locale} />
         </div>
       );
     }
@@ -109,7 +109,7 @@ var DateTimeGroup = React.createClass({
             maxDate={this.props.dateEnd ? moment(this.props.dateEnd) : null}
             excludeDates={this.dateExclusions()}
             dateFormat={this.props.dateFormat}
-            locale={this.props.locales[0]}
+            locales={this.props.locale}
             className="form-control datepicker__input"
             readOnly={this.props.readOnly} />
         </div>
