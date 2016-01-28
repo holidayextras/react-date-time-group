@@ -146,7 +146,7 @@ describe('DateTimeGroup', function() {
             dateLabel="the-date-label"
             dateFormat="dd/mm/YYYY"
             dateExclusions={props.dateExclusions}
-            locale='en-US'
+            locale="en-US"
             value={props.date} />);
         });
 
