@@ -68,7 +68,6 @@ describe('DateTimeGroup', function() {
           };
 
           dateTimeGroup = shallow(<DateTimeGroup {...props} />);
-
         });
 
         it('renders a time picker', function() {
