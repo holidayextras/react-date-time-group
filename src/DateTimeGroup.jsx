@@ -64,7 +64,6 @@ var DateTimeGroup = React.createClass({
     if (!this.props.dateExclusions) {
       return null;
     }
-
     return this.props.dateExclusions.map(function(date) {
       return moment(date);
     });
