@@ -1,6 +1,7 @@
 'use strict';
 
 var React = require('react');
+var ReactDOM = require('react-dom');
 var DateTimeGroup = require('../src/DateTimeGroup.jsx');
 var myDate = new Date('2015-05-05T09:00');
 
@@ -22,7 +23,7 @@ fns.changeDate = function(newDate) {
 };
 
 fns.render = function() {
-  React.render(
+  ReactDOM.render(
     <div>
       <h1>Defaults</h1>
       <DateTimeGroup />
@@ -60,7 +61,7 @@ fns.render = function() {
       <DateTimeGroup value={myDate} onChange={fns.changeDate} />
 
       <h1>Localization (Incomplete)</h1>
-      <DateTimeGroup onChange={fns.changeDate} locales={['en-US']} />
+      <DateTimeGroup onChange={fns.changeDate} locales="en-US" />
     </div>
     ,
     document.getElementById('container')
