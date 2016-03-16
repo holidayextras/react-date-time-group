@@ -11,6 +11,8 @@ var DatePicker = require('react-datepicker');
 var moment = require('moment');
 
 var DateTimeGroup = React.createClass({
+  displayName: 'DateTimeGroup',
+
   propTypes: {
     includeTime: React.PropTypes.bool,
     timeClassName: React.PropTypes.string,
@@ -33,7 +35,7 @@ var DateTimeGroup = React.createClass({
     readOnly: React.PropTypes.bool
   },
 
-  getDefaultProps: function() {
+  getDefaultProps: function getDefaultProps() {
     var defaultDate = new Date();
     defaultDate.setHours(12, 0, 0, 0);
 
@@ -45,13 +47,13 @@ var DateTimeGroup = React.createClass({
     };
   },
 
-  timeChanged: function(newDateTime) {
+  timeChanged: function timeChanged(newDateTime) {
     if (this.props.onChange) {
       this.props.onChange(newDateTime);
     }
   },
 
-  dateChanged: function(newMoment) {
+  dateChanged: function dateChanged(newMoment) {
     if (this.props.onChange) {
       var newDate = newMoment.toDate();
       newDate.setHours(this.props.value.getHours(), this.props.value.getMinutes(), 0, 0);
@@ -60,62 +62,69 @@ var DateTimeGroup = React.createClass({
     }
   },
 
-  dateExclusions: function() {
+  dateExclusions: function dateExclusions() {
     if (!this.props.dateExclusions) {
       return null;
     }
-    return this.props.dateExclusions.map(function(date) {
+    return this.props.dateExclusions.map(function (date) {
       return moment(date);
     });
   },
 
-  render: function() {
-    var timePickerColumn = <span />;
+  render: function render() {
+    var timePickerColumn = React.createElement('span', null);
 
     // Should we mixin ReactIntl to ourselves so locales is pushed further down automatically?
     // Do we need a ReactIntl compatible date picker for that to make sense, or to
     // intercept it here to pass in their own (maybe Moment's) intl data?
     if (this.props.includeTime) {
-      timePickerColumn = (
-        <div className={this.props.timeContainerClass}>
-          <TimePicker
-            className={this.props.timeClassName}
-            label={this.props.timeLabel}
-            name={this.props.timeName}
-            value={this.props.value}
-            onChange={this.timeChanged}
-            start={this.props.timeStart}
-            end={this.props.timeEnd}
-            step={this.props.timeStep}
-            locale={this.props.locale} />
-        </div>
+      timePickerColumn = React.createElement(
+        'div',
+        { className: this.props.timeContainerClass },
+        React.createElement(TimePicker, {
+          className: this.props.timeClassName,
+          label: this.props.timeLabel,
+          name: this.props.timeName,
+          value: this.props.value,
+          onChange: this.timeChanged,
+          start: this.props.timeStart,
+          end: this.props.timeEnd,
+          step: this.props.timeStep,
+          locale: this.props.locale })
       );
     }
 
-    return (
-      <div>
-        <div className={this.props.dateContainerClass}>
-          {this.props.dateLabel ?
-            <label className="control-label">
-              <span>{this.props.dateLabel}</span>
-            </label>
-          : ''}
-          <DatePicker
-            name={this.props.dateName}
-            selected={moment(this.props.value)}
-            onChange={this.dateChanged}
-            minDate={this.props.dateStart ? moment(this.props.dateStart) : null}
-            maxDate={this.props.dateEnd ? moment(this.props.dateEnd) : null}
-            excludeDates={this.dateExclusions()}
-            dateFormat={this.props.dateFormat}
-            locales={this.props.locale}
-            className="form-control datepicker__input"
-            readOnly={this.props.readOnly} />
-        </div>
-        {timePickerColumn}
-      </div>
+    return React.createElement(
+      'div',
+      null,
+      React.createElement(
+        'div',
+        { className: this.props.dateContainerClass },
+        this.props.dateLabel ? React.createElement(
+          'label',
+          { className: 'control-label' },
+          React.createElement(
+            'span',
+            null,
+            this.props.dateLabel
+          )
+        ) : '',
+        React.createElement(DatePicker, {
+          name: this.props.dateName,
+          selected: moment(this.props.value),
+          onChange: this.dateChanged,
+          minDate: this.props.dateStart ? moment(this.props.dateStart) : null,
+          maxDate: this.props.dateEnd ? moment(this.props.dateEnd) : null,
+          excludeDates: this.dateExclusions(),
+          dateFormat: this.props.dateFormat,
+          locales: this.props.locale,
+          className: 'form-control datepicker__input',
+          readOnly: this.props.readOnly })
+      ),
+      timePickerColumn
     );
   }
 });
 
 module.exports = DateTimeGroup;
+
