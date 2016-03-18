@@ -5,11 +5,11 @@
   "main": "dist/DateTimeGroup.js",
   "scripts": {
     "ci": "npm run lint && npm run coverage",
-    "coverage": "istanbul cover _mocha -- --compilers js:babel/register --require react-tests-globals-setup test/test* && istanbul check-coverage",
-    "prepublish": "mkdir -p ./dist && babel --plugins static-fs --presets react,es2015 ./src/DateTimeGroup.jsx > ./dist/DateTimeGroup.js",
+    "coverage": "istanbul cover _mocha -- --compilers js:babel-core/register --require react-tests-globals-setup test/test* && istanbul check-coverage",
+    "prepublish": "mkdir -p ./dist && babel ./src/DateTimeGroup.jsx > ./dist/DateTimeGroup.js",
     "prestart": "ulimit -n 9999",
     "start": "watchify -t babelify -t brfs doc/example.js -o doc/example-built.js -v",
-    "test": "mocha --require react-tests-globals-setup --compilers js:babel/register test/test*",
+    "test": "mocha --require react-tests-globals-setup --compilers js:babel-core/register test/test*",
     "lint": "make-up src test doc"
   },
   "author": "Ollie Buck <ollie.buck@holidayextras.com>",
@@ -28,6 +28,7 @@
   },
   "devDependencies": {
     "babel-cli": "^6.6.5",
+    "babel-core": "^6.7.2",
     "babel-plugin-static-fs": "^1.1.0",
     "babel-preset-es2015": "^6.3.13",
     "babel-preset-react": "^6.3.13",
