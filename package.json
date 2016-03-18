@@ -8,7 +8,7 @@
     "coverage": "istanbul cover _mocha -- --compilers js:babel-core/register --require react-tests-globals-setup test/test* && istanbul check-coverage",
     "prepublish": "mkdir -p ./dist && babel ./src/DateTimeGroup.jsx > ./dist/DateTimeGroup.js",
     "prestart": "ulimit -n 9999",
-    "start": "watchify -t babelify -t brfs doc/example.js -o doc/example-built.js -v",
+    "start": "watchify -t babelify doc/example.js -o doc/example-built.js -v",
     "test": "mocha --require react-tests-globals-setup --compilers js:babel-core/register test/test*",
     "lint": "make-up src test doc"
   },
@@ -33,7 +33,6 @@
     "babel-preset-es2015": "^6.3.13",
     "babel-preset-react": "^6.3.13",
     "babelify": "^6.3.0",
-    "brfs": "^1.4.1",
     "browserify": "^11.2.0",
     "browserify-css": "^0.7.1",
     "chai": "^3.3.0",
