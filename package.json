@@ -1,21 +1,16 @@
 {
   "name": "react-date-time-group",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Datepicker with optional time",
   "main": "dist/DateTimeGroup.js",
   "scripts": {
     "ci": "npm run lint && npm run coverage",
-    "coverage": "istanbul cover _mocha -- --compilers js:babel/register --require react-tests-globals-setup test/test* && istanbul check-coverage",
+    "coverage": "babel-node node_modules/.bin/babel-istanbul cover node_modules/.bin/_mocha -- --require react-tests-globals-setup test/test* && istanbul check-coverage",
     "prepublish": "mkdir -p ./dist && babel ./src/DateTimeGroup.jsx > ./dist/DateTimeGroup.js",
     "prestart": "ulimit -n 9999",
-    "start": "watchify -t babelify -t brfs doc/example.js -o doc/example-built.js -v",
-    "test": "mocha --require react-tests-globals-setup --compilers js:babel/register test/test*",
+    "start": "watchify -t babelify doc/example.js -o doc/example-built.js -v",
+    "test": "mocha --require react-tests-globals-setup --compilers js:babel-core/register test/test*",
     "lint": "make-up src test doc"
-  },
-  "browserify": {
-    "transform": [
-      "brfs"
-    ]
   },
   "author": "Ollie Buck <ollie.buck@holidayextras.com>",
   "license": "ISC",
@@ -32,19 +27,20 @@
     "react-time-select": "^2.0.0"
   },
   "devDependencies": {
-    "babel": "^5.8.23",
-    "babel-loader": "^6.2.1",
+    "babel-cli": "^6.6.5",
+    "babel-core": "^6.7.2",
+    "babel-istanbul": "^0.7.0",
+    "babel-plugin-static-fs": "^1.1.0",
     "babel-preset-es2015": "^6.3.13",
     "babel-preset-react": "^6.3.13",
     "babelify": "^6.3.0",
-    "brfs": "^1.4.1",
     "browserify": "^11.2.0",
     "browserify-css": "^0.7.1",
     "chai": "^3.3.0",
     "dirty-chai": "^1.2.2",
     "enzyme": "^1.4.1",
     "insert-css": "^0.2.0",
-    "istanbul": "^0.3.22",
+    "istanbul": "^0.4.2",
     "jsdom": "^3.1.2",
     "make-up": "^7.1.0",
     "mocha": "^2.3.3",
