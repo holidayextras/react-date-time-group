@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.0.2
+
+- Specified `insert-css` as a dependency.
+
 ## v2.0.1
 
 - Transpile fs.readFileSync into inlined string literal.
