@@ -24,7 +24,8 @@
     "react": "^0.14.2",
     "react-bootstrap": "^0.28.2",
     "react-datepicker": "^0.23.1",
-    "react-dom": "^0.14.2"
+    "react-dom": "^0.14.2",
+    "react-time-select": "^2.0.0"
   },
   "devDependencies": {
     "babel-cli": "^6.6.5",
