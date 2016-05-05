@@ -6,7 +6,7 @@ var insertcss = require('insert-css');
 insertcss(fs.readFileSync(path.join(__dirname, '/../node_modules/react-datepicker/dist/react-datepicker.css'), 'utf8'));
 
 var React = require('react');
-var TimePicker = require('react-time-select');
+// var TimePicker = require('react-time-select');
 var DatePicker = require('react-datepicker');
 var moment = require('moment');
 
@@ -78,16 +78,7 @@ var DateTimeGroup = React.createClass({
     if (this.props.includeTime) {
       timePickerColumn = (
         <div className={this.props.timeContainerClass}>
-          <TimePicker
-            className={this.props.timeClassName}
-            label={this.props.timeLabel}
-            name={this.props.timeName}
-            value={this.props.value}
-            onChange={this.timeChanged}
-            start={this.props.timeStart}
-            end={this.props.timeEnd}
-            step={this.props.timeStep}
-            locale={this.props.locale} />
+
         </div>
       );
     }
