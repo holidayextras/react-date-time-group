@@ -1,6 +1,6 @@
 {
   "name": "react-date-time-group",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Datepicker with optional time",
   "main": "dist/DateTimeGroup.js",
   "scripts": {
@@ -23,7 +23,7 @@
     "moment": "^2.10.6",
     "react": "^0.14.2",
     "react-bootstrap": "^0.28.2",
-    "react-datepicker": "^0.18.0",
+    "react-datepicker": "^0.23.1",
     "react-dom": "^0.14.2",
     "react-time-select": "^2.0.0"
   },
@@ -34,7 +34,7 @@
     "babel-plugin-static-fs": "^1.1.0",
     "babel-preset-es2015": "^6.3.13",
     "babel-preset-react": "^6.3.13",
-    "babelify": "^6.3.0",
+    "babelify": "^7.2.0",
     "browserify": "^11.2.0",
     "browserify-css": "^0.7.1",
     "chai": "^3.3.0",
