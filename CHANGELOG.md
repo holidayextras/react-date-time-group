@@ -1,5 +1,9 @@
 # Changelog
 
+## v3.0.0
+
+- Updated react-datepicker version from 0.23.1 to 0.39.0
+
 ## v2.0.2
 
 - Specified `insert-css` as a dependency.
