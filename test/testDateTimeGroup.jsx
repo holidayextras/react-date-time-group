@@ -224,20 +224,20 @@ describe('DateTimeGroup', function() {
       sinon.assert.calledWith(handler, new Date(2015, 5, 12, 11, 30, 0, 0));
     });
 
-    it('will not throw errors if no handler is provided', function() {
-      var group = <DateTimeGroup />;
+    it('will not throw errors if no onClick is provided (for date)', function() {
 
-      var doc = TestUtils.renderIntoDocument(group);
-      var dateNode = TestUtils.findRenderedDOMComponentWithClass(doc, 'datepicker__input');
-      var timeNode = TestUtils.findRenderedDOMComponentWithTag(doc, 'select');
+      var dateTimeGroup = shallow(<DateTimeGroup />);
+      var input = dateTimeGroup.find('.datepicker__input');
 
       expect(function() {
-        TestUtils.Simulate.change(dateNode, {
-          target: {
-            value: '2015-06-12'
-          }
-        });
+        input.simulate('change', moment('2015-06-12'));
       }).to.not.throw(Error);
+    });
+
+    it('will not throw errors if no onClick is provided (for time)', function() {
+
+      var doc = TestUtils.renderIntoDocument(<DateTimeGroup />);
+      var timeNode = TestUtils.findRenderedDOMComponentWithTag(doc, 'select');
 
       expect(function() {
         TestUtils.Simulate.change(timeNode, {
