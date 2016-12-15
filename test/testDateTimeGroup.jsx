@@ -214,16 +214,11 @@ describe('DateTimeGroup', function() {
     it('will emit a date up if the date is changed', function() {
       var date = new Date(2015, 5, 5, 11, 30, 0, 0);
       var handler = sinon.stub();
-      var group = <DateTimeGroup onChange={handler} value={date} />;
 
-      var doc = TestUtils.renderIntoDocument(group);
-      var node = TestUtils.findRenderedDOMComponentWithClass(doc, 'datepicker__input');
+      var dateTimeGroup = shallow(<DateTimeGroup onChange={handler} value={date} />);
+      var input = dateTimeGroup.find('.datepicker__input');
 
-      TestUtils.Simulate.change(node, {
-        target: {
-          value: '2015-06-12'
-        }
-      });
+      input.simulate('change', moment('2015-06-12'));
 
       sinon.assert.called(handler);
       sinon.assert.calledWith(handler, new Date(2015, 5, 12, 11, 30, 0, 0));

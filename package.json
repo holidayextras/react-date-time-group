@@ -23,7 +23,7 @@
     "moment": "^2.10.6",
     "react": "^0.14.2",
     "react-bootstrap": "^0.28.2",
-    "react-datepicker": "^0.23.1",
+    "react-datepicker": "^0.39.0",
     "react-dom": "^0.14.2",
     "react-time-select": "^2.0.0"
   },
