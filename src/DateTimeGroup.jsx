@@ -30,7 +30,9 @@ var DateTimeGroup = React.createClass({
     locale: React.PropTypes.string,
     timeContainerClass: React.PropTypes.string,
     dateContainerClass: React.PropTypes.string,
-    readOnly: React.PropTypes.bool
+    readOnly: React.PropTypes.bool,
+    dateId: React.PropTypes.string,
+    timeId: React.PropTypes.string
   },
 
   getDefaultProps: function() {
@@ -87,7 +89,9 @@ var DateTimeGroup = React.createClass({
             start={this.props.timeStart}
             end={this.props.timeEnd}
             step={this.props.timeStep}
-            locale={this.props.locale} />
+            locale={this.props.locale}
+            id={this.props.timeId}
+          />
         </div>
       );
     }
@@ -110,7 +114,9 @@ var DateTimeGroup = React.createClass({
             dateFormat={this.props.dateFormat}
             locales={this.props.locale}
             className="form-control datepicker__input"
-            readOnly={this.props.readOnly} />
+            readOnly={this.props.readOnly}
+            id={this.props.dateId}
+          />
         </div>
         {timePickerColumn}
       </div>

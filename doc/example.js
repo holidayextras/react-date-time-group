@@ -42,7 +42,9 @@ fns.render = function() {
         dateExclusions={excludedDates}
         dateFormat="MMMM Do YYYY"
         dateContainerClass="col-xs-12 col-md-8"
-        timeContainerClass="col-xs-12 col-md-4" />
+        timeContainerClass="col-xs-12 col-md-4"
+        dateId="dateWithDateOptions"
+        timeId="timeWithDateOptions" />
 
       <h1>Options for time (value shared with "Events")</h1>
       <DateTimeGroup
@@ -55,7 +57,9 @@ fns.render = function() {
         timeEnd={2130}
         timeStep={15}
         dateContainerClass="col-xs-12 col-md-8"
-        timeContainerClass="col-xs-12 col-md-4" />
+        timeContainerClass="col-xs-12 col-md-4"
+        dateId="dateWithTimeOptions"
+        timeId="timeWithTimeOptions" />
 
       <h1>Events (value shared with "Options for time")</h1>
       <DateTimeGroup value={myDate} onChange={fns.changeDate} />
