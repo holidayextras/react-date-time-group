@@ -1,5 +1,9 @@
 # Changelog
 
+## v3.1.0
+- Add optional props to pass `id` attributes to the date and time inputs
+- Update react-time-select from 2.0.0 to 2.1.0
+
 ## v3.0.0
 
 - Updated react-datepicker version from 0.23.1 to 0.39.0
