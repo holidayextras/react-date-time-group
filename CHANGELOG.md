@@ -1,5 +1,9 @@
 # Changelog
 
+## v3.1.1
+- Add missing `htmlFor` to label to pair it correctly with the input
+- Drop react-datepicker version to fix css bug
+
 ## v3.1.0
 - Add optional props to pass `id` attributes to the date and time inputs
 - Update react-time-select from 2.0.0 to 2.1.0

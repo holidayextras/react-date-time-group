@@ -205,11 +205,15 @@ describe('DateTimeGroup', function() {
 
         context('with a dateId prop', function() {
           beforeEach(function() {
-            dateTimeGroup = shallow(<DateTimeGroup {...props} dateId="dateSelect" />);
+            dateTimeGroup = shallow(<DateTimeGroup {...props} dateId="dateSelect" dateLabel="the-date-label" />);
           });
 
           it('passes an id prop to the datepicker', function() {
             expect(dateTimeGroup.find(DatePicker).prop('id')).to.equal('dateSelect');
+          });
+
+          it('renders a paired label', function() {
+            expect(dateTimeGroup.find('label').prop('htmlFor')).to.equal('dateSelect');
           });
         });
       });
