@@ -100,7 +100,10 @@ var DateTimeGroup = React.createClass({
       <div>
         <div className={this.props.dateContainerClass}>
           {this.props.dateLabel ?
-            <label className="control-label">
+            <label
+              className="control-label"
+              htmlFor={this.props.dateId}
+            >
               <span>{this.props.dateLabel}</span>
             </label>
           : ''}
