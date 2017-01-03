@@ -22,6 +22,7 @@ React.render(<DateTimeGroup />, document.getElementById('container'));
 - __dateEnd__ - Date instance representing the latest day selectable
 - __dateExclusions__ - Array of date instances to be "greyed out"
 - __dateFormat__ - Format string used in the calendar header and as the value of the input element
+- __dateId__ - Optional id for the date field.
 
 ### Time options
 
@@ -31,6 +32,7 @@ React.render(<DateTimeGroup />, document.getElementById('container'));
 - __timeStart__ - Time to start from when generating range, for example `start={1230}`. Default is {30} (00:30).
 - __timeEnd__ - Time to stop generating range. Default is {2359}. Will not be listed as an option if your "step" value overruns it.
 - __timeStep__ - Number of minutes between each option. Default is {30}.
+- __timeId__ - Optional id for the time field.
 
 ## Developing
 

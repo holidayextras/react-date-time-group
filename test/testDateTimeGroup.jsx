@@ -105,6 +105,16 @@ describe('DateTimeGroup', function() {
         it('passes a value prop through', function() {
           expect(dateTimeGroup.find(TimePicker).props().value).to.equal(props.value);
         });
+
+        context('with a timeId prop', function() {
+          beforeEach(function() {
+            dateTimeGroup = shallow(<DateTimeGroup {...props} timeId="timeSelect" />);
+          });
+
+          it('passes an id prop', function() {
+            expect(dateTimeGroup.find(TimePicker).prop('id')).to.equal('timeSelect');
+          });
+        });
       });
 
       context('when not requested', function() {
@@ -191,6 +201,16 @@ describe('DateTimeGroup', function() {
 
         it('renders the date label into a span', function() {
           expect(dateTimeGroup.find('span').children().text()).to.equal('the-date-label');
+        });
+
+        context('with a dateId prop', function() {
+          beforeEach(function() {
+            dateTimeGroup = shallow(<DateTimeGroup {...props} dateId="dateSelect" />);
+          });
+
+          it('passes an id prop to the datepicker', function() {
+            expect(dateTimeGroup.find(DatePicker).prop('id')).to.equal('dateSelect');
+          });
         });
       });
     });
