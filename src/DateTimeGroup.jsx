@@ -51,24 +51,13 @@ var DateTimeGroup = React.createClass({
     };
   },
 
-  timeChanged: function(newDateTime) {
-    if (this.props.onChange) {
-      this.props.onChange(newDateTime);
-    }
-  },
-
-  minutesHoursChanged: function(time) {
+  timeChanged: function(time) {
     var newDate = this.props.value;
+    newDate.setHours(time.hours);
+    this.props.time.hours = time.hours;
 
-    if (time.hours) {
-      newDate.setHours(time.hours);
-      this.props.time.hours = time.hours;
-    }
-
-    if (time.minutes) {
-      newDate.setMinutes(time.minutes);
-      this.props.time.minutes = time.minutes;
-    }
+    newDate.setMinutes(time.minutes);
+    this.props.time.minutes = time.minutes;
 
     this.props.onTimeChange(newDate);
   },
@@ -107,7 +96,6 @@ var DateTimeGroup = React.createClass({
             time={this.props.time}
             value={this.props.value}
             onChange={this.timeChanged}
-            minutesHoursChanged={this.minutesHoursChanged}
             start={this.props.timeStart}
             end={this.props.timeEnd}
             step={this.props.timeStep}

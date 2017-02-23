@@ -271,5 +271,7 @@ describe('DateTimeGroup', function() {
         });
       }).to.not.throw(Error);
     });
+
+    context();
   });
 });
