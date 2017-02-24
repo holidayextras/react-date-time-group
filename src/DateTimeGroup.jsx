@@ -65,7 +65,7 @@ var DateTimeGroup = React.createClass({
   dateChanged: function(newMoment) {
     if (this.props.onChange) {
       var newDate = newMoment.toDate();
-      newDate.setHours(this.props.value.getHours(), this.props.value.getMinutes(), 0, 0);
+      newDate.setHours(this.props.time.hours, this.props.time.minutes, 0, 0);
 
       this.props.onChange(newDate);
     }
