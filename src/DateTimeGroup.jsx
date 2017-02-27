@@ -20,7 +20,10 @@ var DateTimeGroup = React.createClass({
     onChange: React.PropTypes.func,
     onTimeChange: React.PropTypes.func,
     timeStart: React.PropTypes.number,
-    time: React.PropTypes.object,
+    time: React.PropTypes.shape({
+      hours: React.PropTypes.string,
+      minutes: React.PropTypes.string
+    }),
     timeEnd: React.PropTypes.number,
     timeStep: React.PropTypes.number,
     dateName: React.PropTypes.string,
@@ -47,7 +50,11 @@ var DateTimeGroup = React.createClass({
       dateName: 'Date',
       value: defaultDate,
       locale: 'en-GB',
-      seperateHourMins: false
+      seperateHourMins: false,
+      time: {
+        hours: '12',
+        minutes: '00'
+      }
     };
   },
 
