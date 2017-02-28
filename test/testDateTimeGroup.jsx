@@ -237,6 +237,8 @@ describe('DateTimeGroup', function() {
       };
     });
 
+
+
     it('will emit a date up if the date is changed', function() {
       var date = new Date(2015, 5, 5);
       var handler = sinon.stub();
@@ -265,8 +267,26 @@ describe('DateTimeGroup', function() {
       sinon.assert.calledWith(handler, new Date(2015, 5, 12, 15, 30, 0, 0));
     });
 
-    it('will not throw errors if no onClick is provided (for date)', function() {
+    it('will emit time up when time changed', function() {
+      props.seperateHourMins = true;
+      props.includeTime = true;
+      props.value = new Date(2015, 5, 5);
+      var handler = sinon.stub();
 
+      var doc = TestUtils.renderIntoDocument(<DateTimeGroup onTimeChange={handler} {...props} />);
+      var timeNode = TestUtils.scryRenderedDOMComponentsWithTag(doc, 'select')[1];
+
+      TestUtils.Simulate.change(timeNode, {
+        target: {
+          value: '15'
+        }
+      });
+
+      sinon.assert.called(handler);
+      sinon.assert.calledWith(handler, new Date(2015, 5, 5, 11, 15, 0, 0));
+    });
+
+    it('will not throw errors if no onClick is provided (for date)', function() {
       var dateTimeGroup = shallow(<DateTimeGroup />);
       var input = dateTimeGroup.find('.datepicker__input');
 
