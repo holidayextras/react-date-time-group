@@ -9,7 +9,8 @@ React.render(<DateTimeGroup />, document.getElementById('container'));
 
 ## Options
 
-- __onChange__ - Event handler for when a time is selected. It will be passed a date instance set to that time, with years/months/days to match the date you provided as __value__, or today's date if it was not present.
+- __onChange__ - Event handler for when a date is selected. It will be passed a date instance set to that time, with years/months/days to match the date you provided as __value__, or today's date if it was not present.
+- __onTimeChange__ - Event handler for when a time is selected. It will be passed a time object with minutes and hours, and add that to the currently selected date.
 - __value__ - JS Date instance representing the datetime to be displayed.
 - __includeTime__ - Whether to ask for a date and time, or just a date. Defaults to true.
 - __locale__ - Locale ReactIntl should attempt to use for formatting. Default is 'en-GB'.
