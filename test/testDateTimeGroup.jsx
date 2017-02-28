@@ -39,7 +39,12 @@ describe('DateTimeGroup', function() {
         dateName: 'Date',
         includeTime: true,
         value: new Date(2015, 5, 6, 12, 0, 0),
-        locale: 'en-GB'
+        locale: 'en-GB',
+        seperateHourMins: false,
+        time: {
+          hours: '12',
+          minutes: '00'
+        }
       });
     });
   });
@@ -221,31 +226,43 @@ describe('DateTimeGroup', function() {
   });
 
   describe('events', function() {
-    it('will emit a date up if the time is changed', function() {
-      var handler = sinon.stub();
-      var doc = TestUtils.renderIntoDocument(<DateTimeGroup onChange={handler} />);
-      var node = TestUtils.findRenderedDOMComponentWithTag(doc, 'select');
+    var props;
 
-      TestUtils.Simulate.change(node, {
-        target: {
-          value: '16:30'
+    beforeEach(function() {
+      props = {
+        time: {
+          hours: '11',
+          minutes: '30'
         }
-      });
-
-      sinon.assert.calledWith(handler, new Date(2015, 5, 6, 16, 30, 0, 0));
+      };
     });
 
     it('will emit a date up if the date is changed', function() {
-      var date = new Date(2015, 5, 5, 11, 30, 0, 0);
+      var date = new Date(2015, 5, 5);
       var handler = sinon.stub();
 
-      var dateTimeGroup = shallow(<DateTimeGroup onChange={handler} value={date} />);
+      var dateTimeGroup = shallow(<DateTimeGroup onChange={handler} {...props} value={date} />);
       var input = dateTimeGroup.find('.datepicker__input');
 
       input.simulate('change', moment('2015-06-12'));
 
       sinon.assert.called(handler);
       sinon.assert.calledWith(handler, new Date(2015, 5, 12, 11, 30, 0, 0));
+    });
+
+    it('will emit current time up with date when changed', function() {
+      props.time.hours = '15';
+      props.time.minutes = '30';
+      var date = new Date(2015, 5, 5);
+      var handler = sinon.stub();
+
+      var dateTimeGroup = shallow(<DateTimeGroup onChange={handler} {...props} value={date} />);
+      var input = dateTimeGroup.find('.datepicker__input');
+
+      input.simulate('change', moment('2015-06-12'));
+
+      sinon.assert.called(handler);
+      sinon.assert.calledWith(handler, new Date(2015, 5, 12, 15, 30, 0, 0));
     });
 
     it('will not throw errors if no onClick is provided (for date)', function() {
@@ -271,7 +288,5 @@ describe('DateTimeGroup', function() {
         });
       }).to.not.throw(Error);
     });
-
-    context();
   });
 });
