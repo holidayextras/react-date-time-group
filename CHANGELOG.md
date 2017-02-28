@@ -1,5 +1,9 @@
 # Changelog
 
+## v3.2.0
+- Add `seperateHourMins` prop for splitting hours and minutes into individual inputs.
+- Add `time` object prop for setting minutes and hour values.
+
 ## v3.1.1
 - Add missing `htmlFor` to label to pair it correctly with the input
 - Drop react-datepicker version to fix css bug

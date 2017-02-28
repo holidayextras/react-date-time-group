@@ -18,7 +18,12 @@ var DateTimeGroup = React.createClass({
     timeName: React.PropTypes.string,
     value: React.PropTypes.instanceOf(Date),
     onChange: React.PropTypes.func,
+    onTimeChange: React.PropTypes.func,
     timeStart: React.PropTypes.number,
+    time: React.PropTypes.shape({
+      hours: React.PropTypes.string,
+      minutes: React.PropTypes.string
+    }),
     timeEnd: React.PropTypes.number,
     timeStep: React.PropTypes.number,
     dateName: React.PropTypes.string,
@@ -32,7 +37,8 @@ var DateTimeGroup = React.createClass({
     dateContainerClass: React.PropTypes.string,
     readOnly: React.PropTypes.bool,
     dateId: React.PropTypes.string,
-    timeId: React.PropTypes.string
+    timeId: React.PropTypes.string,
+    seperateHourMins: React.PropTypes.bool
   },
 
   getDefaultProps: function() {
@@ -43,20 +49,31 @@ var DateTimeGroup = React.createClass({
       includeTime: true,
       dateName: 'Date',
       value: defaultDate,
-      locale: 'en-GB'
+      locale: 'en-GB',
+      seperateHourMins: false,
+      time: {
+        hours: '12',
+        minutes: '00'
+      }
     };
   },
 
-  timeChanged: function(newDateTime) {
-    if (this.props.onChange) {
-      this.props.onChange(newDateTime);
+  timeChanged: function(time) {
+    if (this.props.onTimeChange) {
+      var newDate = this.props.value;
+      newDate.setHours(time.hours);
+      this.props.time.hours = time.hours;
+
+      newDate.setMinutes(time.minutes);
+      this.props.time.minutes = time.minutes;
+      this.props.onTimeChange(newDate);
     }
   },
 
   dateChanged: function(newMoment) {
     if (this.props.onChange) {
       var newDate = newMoment.toDate();
-      newDate.setHours(this.props.value.getHours(), this.props.value.getMinutes(), 0, 0);
+      newDate.setHours(this.props.time.hours, this.props.time.minutes, 0, 0);
 
       this.props.onChange(newDate);
     }
@@ -84,6 +101,7 @@ var DateTimeGroup = React.createClass({
             className={this.props.timeClassName}
             label={this.props.timeLabel}
             name={this.props.timeName}
+            time={this.props.time}
             value={this.props.value}
             onChange={this.timeChanged}
             start={this.props.timeStart}
@@ -91,6 +109,7 @@ var DateTimeGroup = React.createClass({
             step={this.props.timeStep}
             locale={this.props.locale}
             id={this.props.timeId}
+            seperateHourMins={this.props.seperateHourMins}
           />
         </div>
       );
@@ -106,7 +125,7 @@ var DateTimeGroup = React.createClass({
             >
               <span>{this.props.dateLabel}</span>
             </label>
-          : ''}
+            : ''}
           <DatePicker
             name={this.props.dateName}
             selected={moment(this.props.value)}

@@ -33,6 +33,8 @@ React.render(<DateTimeGroup />, document.getElementById('container'));
 - __timeEnd__ - Time to stop generating range. Default is {2359}. Will not be listed as an option if your "step" value overruns it.
 - __timeStep__ - Number of minutes between each option. Default is {30}.
 - __timeId__ - Optional id for the time field.
+- __seperateHourMins__ - Optional toggle for seperating hour and minutes into seperate inputs.
+- __time__ - Time object of hours / minutes to set values of seperate hours and minutes inputs.
 
 ## Developing
 
