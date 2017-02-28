@@ -1,5 +1,8 @@
 # Changelog
 
+## v3.2.1
+- Add `onTimeChange` prop for setting time (hours and minutes);
+
 ## v3.2.0
 - Add `seperateHourMins` prop for splitting hours and minutes into individual inputs.
 - Add `time` object prop for setting minutes and hour values.
