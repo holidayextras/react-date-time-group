@@ -1,5 +1,8 @@
 # Changelog
 
+## v3.2.2
+- Update react-time-select from 2.2.0 to 2.2.1.
+
 ## v3.2.1
 - Add `onTimeChange` prop for setting time (hours and minutes);
 
@@ -32,6 +35,6 @@
 - Updates the component to React 0.14+
 - Locale changed from array to string
 
-## 1.0.0
+## 1.0.0
 
 - initial release
