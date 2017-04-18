@@ -59,14 +59,20 @@ var DateTimeGroup = React.createClass({
   },
 
   timeChanged: function(time) {
-    if (this.props.onTimeChange) {
-      var newDate = this.props.value;
-      newDate.setHours(time.hours);
-      this.props.time.hours = time.hours;
 
-      newDate.setMinutes(time.minutes);
-      this.props.time.minutes = time.minutes;
+    this.props.time.hours = time.hours;
+    this.props.time.minutes = time.minutes;
+
+    const newDate = this.props.value;
+    newDate.setHours(time.hours);
+    newDate.setMinutes(time.minutes);
+
+    if (this.props.onTimeChange) {
       this.props.onTimeChange(newDate);
+    }
+
+    if (this.props.onChange) {
+      this.props.onChange(newDate);
     }
   },
 
