@@ -1,5 +1,8 @@
 # Changelog
 
+## v3.2.3
+- Fix the callback from the `onChange` prop to be called on changing time
+
 ## v3.2.2
 - Update react-time-select from 2.2.0 to 2.2.1.
 
