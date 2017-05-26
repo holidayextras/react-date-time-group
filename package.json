@@ -8,7 +8,7 @@
     "coverage": "babel-node node_modules/.bin/babel-istanbul cover node_modules/.bin/_mocha -- --require react-tests-globals-setup test/test* && istanbul check-coverage",
     "prepublish": "mkdir -p ./dist && babel ./src/DateTimeGroup.jsx > ./dist/DateTimeGroup.js",
     "postinstall": "npm run less",
-    "less": "mkdir -p ./dist && lessc src/date-time-group.less dist/date-time-group.css",
+    "less": "mkdir -p ./dist && lessc ./src/date-time-group.less ./dist/date-time-group.css",
     "prestart": "ulimit -n 9999",
     "start": "watchify -t babelify doc/example.js -o doc/example-built.js -v",
     "test": "mocha --require react-tests-globals-setup --compilers js:babel-core/register test/test*",
