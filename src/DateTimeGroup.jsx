@@ -4,10 +4,10 @@ var fs = require('fs');
 var path = require('path');
 var insertcss = require('insert-css');
 
-try {
+if (document) {
   insertcss(fs.readFileSync(path.join(__dirname, '/../node_modules/react-datepicker/dist/react-datepicker.css'), 'utf8'));
-} catch (err) {
-  if (console) console.log(err);
+} else {
+  if (console) console.log('ERROR: react-datepicker.css is not inserted because document is not defined');
 }
 
 var React = require('react');
