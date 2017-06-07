@@ -20,6 +20,7 @@
     "url": "https://github.com/holidayextras/react-date-time-group.git"
   },
   "dependencies": {
+    "insert-css": "^0.2.0",
     "moment": "^2.10.6",
     "react": "^0.14.2",
     "react-bootstrap": "^0.28.2",

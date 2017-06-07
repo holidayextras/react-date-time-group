@@ -1,7 +1,5 @@
 'use strict';
 
-var fs = require('fs');
-var path = require('path');
 var React = require('react');
 var TimePicker = require('react-time-select');
 var DatePicker = require('react-datepicker');
