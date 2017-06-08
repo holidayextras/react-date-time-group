@@ -9,7 +9,7 @@
     "prepublish": "mkdir -p ./dist && babel ./src/DateTimeGroup.jsx > ./dist/DateTimeGroup.js && npm run less",
     "less": "mkdir -p ./dist && lessc ./src/date-time-group.less ./dist/date-time-group.css",
     "prestart": "ulimit -n 9999",
-    "start": "watchify -t babelify doc/example.js -o doc/example-built.js -v",
+    "start": "npm run less && watchify -t babelify doc/example.js -o doc/example-built.js -v",
     "test": "mocha --require react-tests-globals-setup --compilers js:babel-core/register test/test*",
     "lint": "make-up src test doc"
   },
@@ -20,7 +20,6 @@
     "url": "https://github.com/holidayextras/react-date-time-group.git"
   },
   "dependencies": {
-    "insert-css": "^0.2.0",
     "moment": "^2.10.6",
     "react": "^0.14.2",
     "react-bootstrap": "^0.28.2",

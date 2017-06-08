@@ -1,10 +1,5 @@
 'use strict';
 
-var fs = require('fs');
-var path = require('path');
-var insertcss = require('insert-css');
-insertcss(fs.readFileSync(path.join(__dirname, '/../dist/date-time-group.css'), 'utf8'));
-
 var React = require('react');
 var ReactDOM = require('react-dom');
 var DateTimeGroup = require('../src/DateTimeGroup.jsx');
