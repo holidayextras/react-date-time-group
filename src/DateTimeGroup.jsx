@@ -1,10 +1,5 @@
 'use strict';
 
-var fs = require('fs');
-var path = require('path');
-var insertcss = require('insert-css');
-insertcss(fs.readFileSync(path.join(__dirname, '/../node_modules/react-datepicker/dist/react-datepicker.css'), 'utf8'));
-
 var React = require('react');
 var TimePicker = require('react-time-select');
 var DatePicker = require('react-datepicker');

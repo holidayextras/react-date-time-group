@@ -1,5 +1,8 @@
 # Changelog
 
+## v4.0.0
+- Remove the `insert-css` dependency. The CSS should be linked explicitly.
+
 ## v3.2.3
 - Fix the callback from the `onChange` prop to be called on changing time
 
