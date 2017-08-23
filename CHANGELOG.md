@@ -1,5 +1,8 @@
 # Changelog
 
+## v4.1.0
+- Update react-time-select from 2.2.1 to 2.3.0.
+
 ## v4.0.0
 - Remove the `insert-css` dependency. The CSS should be linked explicitly.
 
