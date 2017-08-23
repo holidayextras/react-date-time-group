@@ -1,5 +1,8 @@
 # Changelog
 
+## v3.3.0
+- Update react-time-select from 2.2.1 to 2.3.0.
+
 ## v3.2.2
 - Update react-time-select from 2.2.0 to 2.2.1.
 
