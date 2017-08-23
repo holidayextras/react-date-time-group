@@ -1,7 +1,13 @@
 # Changelog
 
-## v3.3.0
+## v4.1.0
 - Update react-time-select from 2.2.1 to 2.3.0.
+
+## v4.0.0
+- Remove the `insert-css` dependency. The CSS should be linked explicitly.
+
+## v3.2.3
+- Fix the callback from the `onChange` prop to be called on changing time
 
 ## v3.2.2
 - Update react-time-select from 2.2.0 to 2.2.1.
