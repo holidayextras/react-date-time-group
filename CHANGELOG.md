@@ -1,5 +1,8 @@
 # Changelog
 
+## v4.1.1
+- Update react-datepicker from 0.23.1 to 0.39.0
+
 ## v4.1.0
 - Update react-time-select from 2.2.1 to 2.3.0.
 

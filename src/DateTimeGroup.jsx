@@ -128,6 +128,7 @@ var DateTimeGroup = React.createClass({
             </label>
             : ''}
           <DatePicker
+            fixedHeight={true}
             name={this.props.dateName}
             selected={moment(this.props.value)}
             onChange={this.dateChanged}
