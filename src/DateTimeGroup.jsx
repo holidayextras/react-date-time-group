@@ -33,7 +33,9 @@ var DateTimeGroup = React.createClass({
     readOnly: React.PropTypes.bool,
     dateId: React.PropTypes.string,
     timeId: React.PropTypes.string,
-    seperateHourMins: React.PropTypes.bool
+    seperateHourMins: React.PropTypes.bool,
+    showMonthDropdown: React.PropTypes.bool,
+    showYearDropdown: React.PropTypes.bool
   },
 
   getDefaultProps: function() {
