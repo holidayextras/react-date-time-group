@@ -24,6 +24,8 @@ React.render(<DateTimeGroup />, document.getElementById('container'));
 - __dateExclusions__ - Array of date instances to be "greyed out"
 - __dateFormat__ - Format string used in the calendar header and as the value of the input element
 - __dateId__ - Optional id for the date field.
+- __showMonthDropdown__ - Show a month dropdown on the calendar.
+- __showYearDropdown__ - Shows a year dropdown on the calendar.
 
 ### Time options
 

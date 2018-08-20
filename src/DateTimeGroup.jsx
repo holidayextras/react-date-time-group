@@ -129,6 +129,8 @@ var DateTimeGroup = React.createClass({
             : ''}
           <DatePicker
             fixedHeight={true}
+            showMonthDropdown={this.props.showMonthDropdown}
+            showYearDropdown={this.props.showYearDropdown}
             name={this.props.dateName}
             selected={moment(this.props.value)}
             onChange={this.dateChanged}
@@ -149,3 +151,4 @@ var DateTimeGroup = React.createClass({
 });
 
 module.exports = DateTimeGroup;
+

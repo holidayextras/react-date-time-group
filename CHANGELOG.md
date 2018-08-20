@@ -1,5 +1,9 @@
 # Changelog
 
+## V4.2.0
+- Add showMonthDropdown prop for showing a month dropdown
+- Add showYearDropdown prop for showing a year dropdown
+
 ## v4.1.1
 - Update react-datepicker from 0.23.1 to 0.39.0
 
