@@ -33,7 +33,9 @@ var DateTimeGroup = React.createClass({
     readOnly: React.PropTypes.bool,
     dateId: React.PropTypes.string,
     timeId: React.PropTypes.string,
-    seperateHourMins: React.PropTypes.bool
+    seperateHourMins: React.PropTypes.bool,
+    showMonthDropdown: React.PropTypes.bool,
+    showYearDropdown: React.PropTypes.bool
   },
 
   getDefaultProps: function() {
@@ -128,6 +130,9 @@ var DateTimeGroup = React.createClass({
             </label>
             : ''}
           <DatePicker
+            fixedHeight={true}
+            showMonthDropdown={this.props.showMonthDropdown}
+            showYearDropdown={this.props.showYearDropdown}
             name={this.props.dateName}
             selected={moment(this.props.value)}
             onChange={this.dateChanged}
@@ -148,3 +153,4 @@ var DateTimeGroup = React.createClass({
 });
 
 module.exports = DateTimeGroup;
+

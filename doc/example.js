@@ -44,7 +44,9 @@ fns.render = function() {
         dateContainerClass="col-xs-12 col-md-8"
         timeContainerClass="col-xs-12 col-md-4"
         dateId="dateWithDateOptions"
-        timeId="timeWithDateOptions" />
+        timeId="timeWithDateOptions"
+        showMonthDropdown={true}
+        showYearDropdown={true} />
 
       <h1>Options for time (value shared with "Events")</h1>
       <DateTimeGroup
