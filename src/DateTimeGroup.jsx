@@ -1,10 +1,8 @@
-'use strict';
-
-var React = require('react');
-var TimePicker = require('react-time-select');
-var DatePicker = require('react-datepicker');
-var moment = require('moment');
-var PropTypes = require('prop-types');
+import React from 'react';
+import TimePicker from 'react-time-select';
+import DatePicker from 'react-datepicker';
+import moment from 'moment';
+import PropTypes from 'prop-types';
 
 class DateTimeGroup extends React.Component {
   constructor(props) {
