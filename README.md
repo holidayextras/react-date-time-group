@@ -1,6 +1,6 @@
 # react-date-time-group
 
-[React](https://facebook.github.io/react/) Component for a date picker & time picker, emitting Date instances if either part is changed. Requires react v0.14+.
+[React](https://facebook.github.io/react/) Component for a date picker & time picker, emitting Date instances if either part is changed. Requires react v16+.
 
 ```
 var DateTimeGroup = require('react-date-time-group');

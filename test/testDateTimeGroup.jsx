@@ -1,8 +1,7 @@
 'use strict';
 
 var React = require('react');
-var TestUtils = require('react-addons-test-utils');
-
+var TestUtils = require('react-dom/test-utils');
 var TimePicker = require('react-time-select');
 var DatePicker = require('react-datepicker');
 var moment = require('moment');
@@ -10,7 +9,9 @@ var moment = require('moment');
 var expect = require('chai').expect;
 var sinon = require('sinon');
 
-var shallow = require('enzyme').shallow;
+var { shallow, configure } = require('enzyme');
+var Adapter = require('enzyme-adapter-react-16');
+configure({ adapter: new Adapter() });
 
 describe('DateTimeGroup', function() {
   var clock, DateTimeGroup;

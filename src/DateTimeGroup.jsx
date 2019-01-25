@@ -4,58 +4,16 @@ var React = require('react');
 var TimePicker = require('react-time-select');
 var DatePicker = require('react-datepicker');
 var moment = require('moment');
+var PropTypes = require('prop-types');
 
-var DateTimeGroup = React.createClass({
-  propTypes: {
-    includeTime: React.PropTypes.bool,
-    timeClassName: React.PropTypes.string,
-    timeLabel: React.PropTypes.string,
-    timeName: React.PropTypes.string,
-    value: React.PropTypes.instanceOf(Date),
-    onChange: React.PropTypes.func,
-    onTimeChange: React.PropTypes.func,
-    timeStart: React.PropTypes.number,
-    time: React.PropTypes.shape({
-      hours: React.PropTypes.string,
-      minutes: React.PropTypes.string
-    }),
-    timeEnd: React.PropTypes.number,
-    timeStep: React.PropTypes.number,
-    dateName: React.PropTypes.string,
-    dateLabel: React.PropTypes.string,
-    dateStart: React.PropTypes.instanceOf(Date),
-    dateEnd: React.PropTypes.instanceOf(Date),
-    dateFormat: React.PropTypes.string,
-    dateExclusions: React.PropTypes.array,
-    locale: React.PropTypes.string,
-    timeContainerClass: React.PropTypes.string,
-    dateContainerClass: React.PropTypes.string,
-    readOnly: React.PropTypes.bool,
-    dateId: React.PropTypes.string,
-    timeId: React.PropTypes.string,
-    seperateHourMins: React.PropTypes.bool,
-    showMonthDropdown: React.PropTypes.bool,
-    showYearDropdown: React.PropTypes.bool
-  },
-
-  getDefaultProps: function() {
-    var defaultDate = new Date();
-    defaultDate.setHours(12, 0, 0, 0);
-
-    return {
-      includeTime: true,
-      dateName: 'Date',
-      value: defaultDate,
-      locale: 'en-GB',
-      seperateHourMins: false,
-      time: {
-        hours: '12',
-        minutes: '00'
-      }
-    };
-  },
-
-  timeChanged: function(time) {
+class DateTimeGroup extends React.Component {
+  constructor(props) {
+    super(props);
+    this.timeChanged = this.timeChanged.bind(this);
+    this.dateChanged = this.dateChanged.bind(this);
+    this.dateExclusions = this.dateExclusions.bind(this);
+  }
+  timeChanged(time) {
 
     this.props.time.hours = time.hours;
     this.props.time.minutes = time.minutes;
@@ -71,32 +29,28 @@ var DateTimeGroup = React.createClass({
     if (this.props.onChange) {
       this.props.onChange(newDate);
     }
-  },
+  }
 
-  dateChanged: function(newMoment) {
+  dateChanged(newMoment) {
     if (this.props.onChange) {
       var newDate = newMoment.toDate();
       newDate.setHours(this.props.time.hours, this.props.time.minutes, 0, 0);
 
       this.props.onChange(newDate);
     }
-  },
+  }
 
-  dateExclusions: function() {
+  dateExclusions() {
     if (!this.props.dateExclusions) {
       return null;
     }
     return this.props.dateExclusions.map(function(date) {
       return moment(date);
     });
-  },
+  }
 
-  render: function() {
+  render() {
     var timePickerColumn = <span />;
-
-    // Should we mixin ReactIntl to ourselves so locales is pushed further down automatically?
-    // Do we need a ReactIntl compatible date picker for that to make sense, or to
-    // intercept it here to pass in their own (maybe Moment's) intl data?
     if (this.props.includeTime) {
       timePickerColumn = (
         <div className={this.props.timeContainerClass}>
@@ -150,7 +104,53 @@ var DateTimeGroup = React.createClass({
       </div>
     );
   }
-});
+}
+
+DateTimeGroup.propTypes = {
+  includeTime: PropTypes.bool,
+  timeClassName: PropTypes.string,
+  timeLabel: PropTypes.string,
+  timeName: PropTypes.string,
+  value: PropTypes.instanceOf(Date),
+  onChange: PropTypes.func,
+  onTimeChange: PropTypes.func,
+  timeStart: PropTypes.number,
+  time: PropTypes.shape({
+    hours: PropTypes.string,
+    minutes: PropTypes.string
+  }),
+  timeEnd: PropTypes.number,
+  timeStep: PropTypes.number,
+  dateName: PropTypes.string,
+  dateLabel: PropTypes.string,
+  dateStart: PropTypes.instanceOf(Date),
+  dateEnd: PropTypes.instanceOf(Date),
+  dateFormat: PropTypes.string,
+  dateExclusions: PropTypes.array,
+  locale: PropTypes.string,
+  timeContainerClass: PropTypes.string,
+  dateContainerClass: PropTypes.string,
+  readOnly: PropTypes.bool,
+  dateId: PropTypes.string,
+  timeId: PropTypes.string,
+  seperateHourMins: PropTypes.bool,
+  showMonthDropdown: PropTypes.bool,
+  showYearDropdown: PropTypes.bool
+};
+
+var defaultDate = new Date();
+defaultDate.setHours(12, 0, 0, 0);
+
+DateTimeGroup.defaultProps = {
+  includeTime: true,
+  dateName: 'Date',
+  value: defaultDate,
+  locale: 'en-GB',
+  seperateHourMins: false,
+  time: {
+    hours: '12',
+    minutes: '00'
+  }
+};
 
 module.exports = DateTimeGroup;
-
