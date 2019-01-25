@@ -21,11 +21,14 @@
   },
   "dependencies": {
     "moment": "^2.10.6",
-    "react": "^0.14.2",
-    "react-bootstrap": "^0.28.2",
-    "react-datepicker": "0.39.0",
-    "react-dom": "^0.14.2",
-    "react-time-select": "^2.2.1"
+    "prop-types": "^15.6.2",
+    "react-bootstrap": "0.32.4",
+    "react-datepicker": "0.64.0",
+    "react-time-select": "^3.0.0"
+  },
+  "peerDependencies": {
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0"
   },
   "devDependencies": {
     "babel-cli": "^6.6.5",
@@ -39,13 +42,15 @@
     "browserify-css": "^0.7.1",
     "chai": "^3.3.0",
     "dirty-chai": "^1.2.2",
-    "enzyme": "^1.4.1",
+    "enzyme": "3.8.0",
+    "enzyme-adapter-react-16": "^1.8.0",
     "istanbul": "^0.4.2",
     "jsdom": "^11.2.0",
     "less": "2.7.2",
     "make-up": "^7.1.0",
     "mocha": "^2.3.3",
-    "react-addons-test-utils": "^0.14.6",
+    "react": "16.7.0",
+    "react-dom": "16.7.0",
     "react-shallow-render": "^1.0.1",
     "react-tests-globals-setup": "^1.0.0",
     "sinon": "^1.17.1",
