@@ -1,6 +1,6 @@
 {
   "name": "react-date-time-group",
-  "version": "4.2.0",
+  "version": "5.0.0",
   "description": "Datepicker with optional time",
   "main": "dist/DateTimeGroup.js",
   "scripts": {
@@ -22,7 +22,6 @@
   "dependencies": {
     "moment": "^2.10.6",
     "prop-types": "^15.6.2",
-    "react-bootstrap": "0.32.4",
     "react-datepicker": "0.64.0",
     "react-time-select": "^3.0.0"
   },
@@ -47,7 +46,7 @@
     "istanbul": "^0.4.2",
     "jsdom": "^11.2.0",
     "less": "2.7.2",
-    "make-up": "^7.1.0",
+    "make-up": "^10.0.0",
     "mocha": "^2.3.3",
     "react": "16.7.0",
     "react-dom": "16.7.0",

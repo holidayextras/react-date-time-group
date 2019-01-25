@@ -9,11 +9,11 @@ var PropTypes = require('prop-types');
 class DateTimeGroup extends React.Component {
   constructor(props) {
     super(props);
-    this.timeChanged = this.timeChanged.bind(this)
-    this.dateChanged = this.dateChanged.bind(this)
-    this.dateExclusions = this.dateExclusions.bind(this)
+    this.timeChanged = this.timeChanged.bind(this);
+    this.dateChanged = this.dateChanged.bind(this);
+    this.dateExclusions = this.dateExclusions.bind(this);
   }
-  timeChanged (time) {
+  timeChanged(time) {
 
     this.props.time.hours = time.hours;
     this.props.time.minutes = time.minutes;
@@ -31,7 +31,7 @@ class DateTimeGroup extends React.Component {
     }
   }
 
-  dateChanged (newMoment) {
+  dateChanged(newMoment) {
     if (this.props.onChange) {
       var newDate = newMoment.toDate();
       newDate.setHours(this.props.time.hours, this.props.time.minutes, 0, 0);
@@ -40,7 +40,7 @@ class DateTimeGroup extends React.Component {
     }
   }
 
-  dateExclusions () {
+  dateExclusions() {
     if (!this.props.dateExclusions) {
       return null;
     }
@@ -49,7 +49,7 @@ class DateTimeGroup extends React.Component {
     });
   }
 
-  render () {
+  render() {
     var timePickerColumn = <span />;
     if (this.props.includeTime) {
       timePickerColumn = (
@@ -104,7 +104,7 @@ class DateTimeGroup extends React.Component {
       </div>
     );
   }
-};
+}
 
 DateTimeGroup.propTypes = {
   includeTime: PropTypes.bool,
@@ -151,6 +151,6 @@ DateTimeGroup.defaultProps = {
     hours: '12',
     minutes: '00'
   }
-}
+};
 
 module.exports = DateTimeGroup;
