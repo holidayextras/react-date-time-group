@@ -1,54 +1,53 @@
-import React from 'react';
-import TimePicker from 'react-time-select';
-import DatePicker from 'react-datepicker';
-import moment from 'moment';
-import PropTypes from 'prop-types';
+import React from 'react'
+import TimePicker from 'react-time-select'
+import DatePicker from 'react-datepicker'
+import moment from 'moment'
+import PropTypes from 'prop-types'
 
 class DateTimeGroup extends React.Component {
-  constructor(props) {
-    super(props);
-    this.timeChanged = this.timeChanged.bind(this);
-    this.dateChanged = this.dateChanged.bind(this);
-    this.dateExclusions = this.dateExclusions.bind(this);
+  constructor (props) {
+    super(props)
+    this.timeChanged = this.timeChanged.bind(this)
+    this.dateChanged = this.dateChanged.bind(this)
+    this.dateExclusions = this.dateExclusions.bind(this)
   }
-  timeChanged(time) {
+  timeChanged (time) {
+    this.props.time.hours = time.hours
+    this.props.time.minutes = time.minutes
 
-    this.props.time.hours = time.hours;
-    this.props.time.minutes = time.minutes;
-
-    const newDate = this.props.value;
-    newDate.setHours(time.hours);
-    newDate.setMinutes(time.minutes);
+    const newDate = this.props.value
+    newDate.setHours(time.hours)
+    newDate.setMinutes(time.minutes)
 
     if (this.props.onTimeChange) {
-      this.props.onTimeChange(newDate);
+      this.props.onTimeChange(newDate)
     }
 
     if (this.props.onChange) {
-      this.props.onChange(newDate);
+      this.props.onChange(newDate)
     }
   }
 
-  dateChanged(newMoment) {
+  dateChanged (newMoment) {
     if (this.props.onChange) {
-      var newDate = newMoment.toDate();
-      newDate.setHours(this.props.time.hours, this.props.time.minutes, 0, 0);
+      var newDate = newMoment.toDate()
+      newDate.setHours(this.props.time.hours, this.props.time.minutes, 0, 0)
 
-      this.props.onChange(newDate);
+      this.props.onChange(newDate)
     }
   }
 
-  dateExclusions() {
+  dateExclusions () {
     if (!this.props.dateExclusions) {
-      return null;
+      return null
     }
-    return this.props.dateExclusions.map(function(date) {
-      return moment(date);
-    });
+    return this.props.dateExclusions.map(function (date) {
+      return moment(date)
+    })
   }
 
-  render() {
-    var timePickerColumn = <span />;
+  render () {
+    var timePickerColumn = <span />
     if (this.props.includeTime) {
       timePickerColumn = (
         <div className={this.props.timeContainerClass}>
@@ -67,22 +66,22 @@ class DateTimeGroup extends React.Component {
             seperateHourMins={this.props.seperateHourMins}
           />
         </div>
-      );
+      )
     }
 
     return (
       <div>
         <div className={this.props.dateContainerClass}>
-          {this.props.dateLabel ?
-            <label
-              className="control-label"
+          {this.props.dateLabel
+            ? <label
+              className='control-label'
               htmlFor={this.props.dateId}
             >
               <span>{this.props.dateLabel}</span>
             </label>
             : ''}
           <DatePicker
-            fixedHeight={true}
+            fixedHeight
             showMonthDropdown={this.props.showMonthDropdown}
             showYearDropdown={this.props.showYearDropdown}
             name={this.props.dateName}
@@ -93,14 +92,14 @@ class DateTimeGroup extends React.Component {
             excludeDates={this.dateExclusions()}
             dateFormat={this.props.dateFormat}
             locales={this.props.locale}
-            className="form-control datepicker__input"
+            className='form-control datepicker__input'
             readOnly={this.props.readOnly}
             id={this.props.dateId}
           />
         </div>
         {timePickerColumn}
       </div>
-    );
+    )
   }
 }
 
@@ -134,10 +133,10 @@ DateTimeGroup.propTypes = {
   seperateHourMins: PropTypes.bool,
   showMonthDropdown: PropTypes.bool,
   showYearDropdown: PropTypes.bool
-};
+}
 
-var defaultDate = new Date();
-defaultDate.setHours(12, 0, 0, 0);
+var defaultDate = new Date()
+defaultDate.setHours(12, 0, 0, 0)
 
 DateTimeGroup.defaultProps = {
   includeTime: true,
@@ -149,6 +148,6 @@ DateTimeGroup.defaultProps = {
     hours: '12',
     minutes: '00'
   }
-};
+}
 
-module.exports = DateTimeGroup;
+module.exports = DateTimeGroup
