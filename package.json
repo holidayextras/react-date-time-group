@@ -1,6 +1,6 @@
 {
   "name": "react-date-time-group",
-  "version": "5.0.2",
+  "version": "5.0.3",
   "description": "Datepicker with optional time",
   "main": "dist/DateTimeGroup.js",
   "scripts": {

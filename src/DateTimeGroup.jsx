@@ -91,7 +91,7 @@ class DateTimeGroup extends React.Component {
             maxDate={this.props.dateEnd ? moment(this.props.dateEnd) : null}
             excludeDates={this.dateExclusions()}
             dateFormat={this.props.dateFormat}
-            locales={this.props.locale}
+            locale={this.props.locale}
             className='form-control datepicker__input'
             readOnly={this.props.readOnly}
             id={this.props.dateId}
