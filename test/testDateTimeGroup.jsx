@@ -181,7 +181,7 @@ describe('DateTimeGroup', function () {
         })
 
         it('passes the first locale through (only one is expected)', function () {
-          expect(dateTimeGroup.find(DatePicker).props().locales).to.equal('en-US')
+          expect(dateTimeGroup.find(DatePicker).props().locale).to.equal('en-US')
         })
 
         it('wraps the value in a moment', function () {
