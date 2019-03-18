@@ -1,8 +1,9 @@
 import React from 'react'
 import TimePicker from 'react-time-select'
-import DatePicker from 'react-datepicker'
 import moment from 'moment'
 import PropTypes from 'prop-types'
+import DatePicker from 'react-datepicker'
+import enGB from 'moment/locale/en-gb' // eslint-disable-line no-unused-vars
 
 class DateTimeGroup extends React.Component {
   constructor (props) {
