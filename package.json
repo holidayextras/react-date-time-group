@@ -44,7 +44,6 @@
     "browserify": "^11.2.0",
     "browserify-css": "^0.7.1",
     "chai": "^3.3.0",
-    "date-fns": "^2.0.0-alpha.23",
     "dirty-chai": "^1.2.2",
     "enzyme": "3.8.0",
     "enzyme-adapter-react-16": "^1.8.0",
