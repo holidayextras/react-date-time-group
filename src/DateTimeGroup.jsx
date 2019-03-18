@@ -1,8 +1,10 @@
 import React from 'react'
 import TimePicker from 'react-time-select'
-import DatePicker from 'react-datepicker'
+import DatePicker, { registerLocale } from 'react-datepicker'
 import moment from 'moment'
 import PropTypes from 'prop-types'
+import enGB from 'date-fns/locale/en-GB';
+registerLocale('en-GB', enGB);
 
 class DateTimeGroup extends React.Component {
   constructor (props) {
