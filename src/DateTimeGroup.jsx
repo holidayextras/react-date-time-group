@@ -104,6 +104,8 @@ class DateTimeGroup extends React.Component {
   }
 }
 
+DateTimeGroup.displayName = 'DateTimeGroup'
+
 DateTimeGroup.propTypes = {
   includeTime: PropTypes.bool,
   timeClassName: PropTypes.string,
